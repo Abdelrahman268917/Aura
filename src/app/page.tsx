@@ -26,6 +26,8 @@ const content = {
     },
     loader: {
       tagline: 'Business Acceleration Studio',
+      line1: 'Build smartly. Work faster.',
+      line2: 'Turn your business into a system.',
     },
     hero: {
       badge: 'AURA · Business Acceleration Studio',
@@ -140,7 +142,7 @@ const content = {
         ],
       },
     },
-    packages: {
+      packages: {
       badge: 'Packages',
       title: 'Choose What Fits Your Need',
       subtitle: 'The initial diagnosis will help determine the right path — you don\'t pay for what you don\'t need.',
@@ -148,7 +150,7 @@ const content = {
         name: 'Sprint',
         subtitle: 'When you need one specific thing',
         badge: 'Best for Specific Need',
-        duration: '5-14 days execution',
+        scope: 'Scoped after diagnosis',
         features: [
           'Diagnosis & Analysis Sprint',
           'Work Flow Design Sprint',
@@ -163,7 +165,7 @@ const content = {
         name: 'Full System',
         subtitle: 'Maximum Impact — Best Value',
         badge: 'Most Impact',
-        duration: '21-45 days execution',
+        scope: 'Custom project scope',
         features: [
           'All service layers integrated',
           'Diagnosis + Design + Build + Automate',
@@ -178,7 +180,7 @@ const content = {
         name: 'Managed Systems Partner',
         subtitle: 'Ongoing ownership after launch',
         badge: 'Monthly Partnership',
-        duration: 'Monthly custom scope',
+        scope: 'Monthly custom scope',
         description: 'After the system is built, we can stay involved monthly to monitor, improve, and adapt the tools, workflows, and automations as your business grows.',
         features: ['Monthly system review', 'Tool monitoring and improvements', 'Workflow updates', 'Automation refinement', 'Priority roadmap', 'New requests and enhancements'],
         cta: 'Discuss Monthly Support',
@@ -195,6 +197,7 @@ const content = {
           { if: 'If you say: "We need a complete transformation for the company"', then: '→ Full Business Acceleration System ✓' },
         ],
       },
+      scopeNote: 'Scope and delivery plan are defined after understanding the business, workflow complexity, tools, automation depth, and team involvement.',
     },
     differentiators: {
       badge: 'Why Us',
@@ -326,6 +329,8 @@ const content = {
     },
     loader: {
       tagline: 'استديو تسريع الأعمال',
+      line1: 'نبني بذكاء. نعمل أسرع.',
+      line2: 'نحوّل عملك إلى نظام واضح.',
     },
     hero: {
       badge: 'AURA · استديو تسريع الأعمال',
@@ -448,7 +453,7 @@ const content = {
         name: 'سبرنت',
         subtitle: 'عندما تحتاج شيئاً واحداً محدداً',
         badge: 'الأفضل لاحتياج محدد',
-        duration: 'تنفيذ ٥-١٤ يوم',
+        scope: 'يُحدد بعد التشخيص',
         features: [
           'سبرنت تشخيص وتحليل',
           'سبرنت تصميم مسار العمل',
@@ -463,7 +468,7 @@ const content = {
         name: 'النظام الكامل',
         subtitle: 'أقصى تأثير — أفضل قيمة',
         badge: 'الأكثر تأثيراً',
-        duration: 'تنفيذ ٢١-٤٥ يوم',
+        scope: 'نطاق مخصص حسب المشروع',
         features: [
           'جميع طبقات الخدمة مدمجة',
           'تشخيص + تصميم + بناء + أتمتة',
@@ -478,7 +483,7 @@ const content = {
         name: 'شريك إدارة وتحسين الأنظمة',
         subtitle: 'ملكية مستمرة بعد الإطلاق',
         badge: 'شراكة شهرية',
-        duration: 'نطاق شهري مخصص',
+        scope: 'نطاق شهري مخصص',
         description: 'بعد بناء النظام، يمكننا الاستمرار شهرياً لمراقبة الأدوات ومسارات العمل والأتمتة وتحسينها وتكييفها مع نمو عملك.',
         features: ['مراجعة شهرية للنظام', 'مراقبة الأدوات وتحسينها', 'تحديثات سير العمل', 'تحسين الأتمتة', 'خارطة أولويات', 'طلبات وتحسينات جديدة'],
         cta: 'ناقش المتابعة الشهرية',
@@ -495,6 +500,7 @@ const content = {
           { if: 'إذا قلت: "نحتاج تحويلاً كاملاً للشركة"', then: '← نظام تسريع الأعمال الكامل ✓' },
         ],
       },
+      scopeNote: 'يتم تحديد النطاق وخطة التنفيذ بعد فهم طبيعة العمل، تعقيد سير العمل، الأدوات المطلوبة، عمق الأتمتة، ومشاركة الفريق.',
     },
     differentiators: {
       badge: 'لماذا نحن',
@@ -751,75 +757,38 @@ function FloatingParticles() {
 
 /* ─── Loader Component ────────────────────────────────── */
 function Loader({ onComplete, lang }: { onComplete: () => void; lang: 'en' | 'ar' }) {
-  const [progress, setProgress] = useState(0);
-
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(timer);
-          setTimeout(onComplete, 400);
-          return 100;
-        }
-        return prev + 2;
-      });
-    }, 30);
-    return () => clearInterval(timer);
+    const timer = window.setTimeout(onComplete, 1500);
+    return () => window.clearTimeout(timer);
   }, [onComplete]);
 
+  const t = content[lang].loader;
+
   return (
-    <motion.div
-      className="fixed inset-0 z-[9999] flex items-center justify-center flex-col gap-6"
-      style={{ background: '#1A0A2E' }}
-      exit={{ opacity: 0, visibility: 'hidden' }}
-      transition={{ duration: 0.8 }}
-    >
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0" style={{
-          background: 'radial-gradient(circle at 30% 50%, rgba(75,29,110,0.4) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(242,169,0,0.15) 0%, transparent 50%)',
-        }} />
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6 }}
-        className="relative z-10 flex flex-col items-center gap-4"
-      >
-        <motion.div
-          className="text-5xl md:text-7xl font-bold tracking-wider"
-          style={{
-            background: 'linear-gradient(135deg, #F2A900 0%, #FFD666 50%, #F2A900 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            animation: 'loaderPulse 2s ease-in-out infinite',
-          }}
-        >
-          AURA
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-sm md:text-base tracking-widest uppercase"
-          style={{ color: 'rgba(242,169,0,0.7)', fontFamily: 'var(--font-outfit), sans-serif' }}
-        >
-          {content[lang].loader.tagline}
-        </motion.p>
-
-        <div className="w-48 h-[3px] rounded-full overflow-hidden mt-2" style={{ background: 'rgba(255,255,255,0.1)' }}>
-          <motion.div
-            className="h-full rounded-full"
-            style={{
-              background: '#F2A900',
-              boxShadow: '0 0 12px rgba(242,169,0,0.5)',
-              width: progress + '%',
-            }}
+    <div className="aura-loader" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="aura-loader__glow" />
+      <div className="aura-loader__content">
+        <div className="aura-loader__brand">
+          <Image
+            src="/brand/aura-mark.png"
+            alt=""
+            width={512}
+            height={512}
+            className="aura-loader__mark"
+            priority
           />
+          <span className="aura-loader__wordmark">AURA</span>
         </div>
-      </motion.div>
-    </motion.div>
+        <p className="aura-loader__descriptor">{t.tagline}</p>
+        <div className="aura-loader__tagline">
+          <span>{t.line1}</span>
+          <span>{t.line2}</span>
+        </div>
+        <div className="aura-loader__track" aria-hidden="true">
+          <span />
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -1402,8 +1371,8 @@ function PackagesSection({ lang }: { lang: 'en' | 'ar' }) {
             <h3 className="text-2xl font-bold mb-1" style={{ color: '#fff' }}>{t.sprint.name}</h3>
             <p className="text-sm mb-4" style={{ color: '#B5AEC4' }}>{t.sprint.subtitle}</p>
             <div className="flex items-center gap-2 mb-6">
-              <Clock size={14} style={{ color: '#F2A900' }} />
-              <span className="text-sm font-semibold" style={{ color: '#FFD666' }}>{t.sprint.duration}</span>
+              <Layers size={14} style={{ color: '#F2A900' }} />
+              <span className="text-sm font-semibold" style={{ color: '#FFD666' }}>{t.sprint.scope}</span>
             </div>
             <ul className="space-y-3 mb-8 flex-1">
               {t.sprint.features.map((f, i) => (
@@ -1445,8 +1414,8 @@ function PackagesSection({ lang }: { lang: 'en' | 'ar' }) {
             <h3 className="text-2xl font-bold mb-1 text-gold-gradient mt-6">{t.full.name}</h3>
             <p className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.7)' }}>{t.full.subtitle}</p>
             <div className="flex items-center gap-2 mb-6">
-              <Clock size={14} style={{ color: '#F2A900' }} />
-              <span className="text-sm font-semibold" style={{ color: '#FFD666' }}>{t.full.duration}</span>
+              <Layers size={14} style={{ color: '#F2A900' }} />
+              <span className="text-sm font-semibold" style={{ color: '#FFD666' }}>{t.full.scope}</span>
             </div>
             <ul className="space-y-3 mb-8 flex-1">
               {t.full.features.map((f, i) => (
@@ -1488,7 +1457,7 @@ function PackagesSection({ lang }: { lang: 'en' | 'ar' }) {
             <p className="text-sm mb-4" style={{ color: '#B5AEC4' }}>{t.managed.subtitle}</p>
             <div className="flex items-center gap-2 mb-5">
               <RefreshCw size={14} style={{ color: '#F2A900' }} />
-              <span className="text-sm font-semibold" style={{ color: '#FFD666' }}>{t.managed.duration}</span>
+              <span className="text-sm font-semibold" style={{ color: '#FFD666' }}>{t.managed.scope}</span>
             </div>
             <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.72)' }} dir={isRtl ? 'rtl' : 'ltr'}>
               {t.managed.description}
@@ -1513,6 +1482,10 @@ function PackagesSection({ lang }: { lang: 'en' | 'ar' }) {
             </a>
           </motion.div>
         </div>
+
+        <p className="max-w-3xl mx-auto mb-10 text-center text-xs md:text-sm leading-relaxed" style={{ color: '#B5AEC4' }} dir={isRtl ? 'rtl' : 'ltr'}>
+          {t.scopeNote}
+        </p>
 
         {/* Starting Point Guide */}
         <motion.div
