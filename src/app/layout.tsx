@@ -16,17 +16,35 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aura-swzc.vercel.app"),
   title: "AURA | Business Acceleration Studio",
-  description: "AURA designs workflows, builds internal tools, and manages business systems as companies grow.",
+  description: "Build smartly. Work faster. Turn your business into a system.",
   keywords: ["AURA", "Business Acceleration Studio", "Workflow Design", "Automation", "Business Systems"],
   authors: [{ name: "AURA Business Acceleration Studio" }],
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
   },
   openGraph: {
     title: "AURA | Business Acceleration Studio",
     description: "Build smartly. Work faster. Turn your business into a system.",
+    url: "https://aura-swzc.vercel.app",
+    siteName: "AURA",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AURA | Business Acceleration Studio",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AURA | Business Acceleration Studio",
+    description: "Build smartly. Work faster. Turn your business into a system.",
+    images: ["/og-image.png"],
   },
 };
 

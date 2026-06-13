@@ -190,6 +190,14 @@ body {
 /* RTL support */
 [dir="rtl"] {
   text-align: right;
+  line-height: 1.8;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4 {
+  line-height: 1.35;
 }
 
 /* Glass morphism utility */
@@ -241,6 +249,146 @@ body {
   mask-composite: exclude;
   animation: gradientShift 4s ease infinite;
   background-size: 200% 200%;
+}
+
+/* Contact action panel */
+.contact-action-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 1.4rem;
+  border: 1px solid rgba(139, 92, 246, 0.18);
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, rgba(25, 11, 48, 0.72), rgba(12, 6, 27, 0.76));
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(12px);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.contact-action-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(242, 169, 0, 0.3);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.32);
+}
+
+.contact-route-label,
+.contact-action-icon {
+  display: grid;
+  place-items: center;
+  border-radius: 0.65rem;
+}
+
+.contact-route-label {
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid rgba(242, 169, 0, 0.28);
+  background: rgba(242, 169, 0, 0.08);
+  color: #ffd666;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.contact-action-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: rgba(139, 92, 246, 0.08);
+  color: #a78bfa;
+}
+
+.contact-action-card h3 {
+  margin-top: 1.15rem;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+.contact-action-card p {
+  flex: 1;
+  margin-top: 0.55rem;
+  color: #b5aec4;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.contact-action-button {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 1.3rem;
+  padding: 0.72rem 1rem;
+  border: 1px solid rgba(139, 92, 246, 0.26);
+  border-radius: 999px;
+  background: rgba(139, 92, 246, 0.09);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-align: center;
+  transition: transform 200ms ease, background 200ms ease, border-color 200ms ease;
+}
+
+.contact-action-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(242, 169, 0, 0.42);
+  background: rgba(242, 169, 0, 0.1);
+}
+
+.contact-action-button.is-primary {
+  border-color: #f2a900;
+  background: #f2a900;
+  color: #090416;
+  box-shadow: 0 8px 24px rgba(242, 169, 0, 0.18);
+}
+
+.contact-direct-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem 1.2rem;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1rem;
+  border-top: 1px solid rgba(139, 92, 246, 0.12);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.68rem;
+}
+
+.contact-direct-details a,
+.contact-direct-details div {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.contact-direct-details span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.contact-direct-details a {
+  transition: color 180ms ease;
+}
+
+.contact-direct-details a:hover {
+  color: #ffd666;
+}
+
+.contact-direct-details svg {
+  flex: 0 0 auto;
+  color: #f2a900;
+}
+
+[dir="rtl"] .contact-action-card {
+  text-align: right;
+}
+
+[dir="rtl"] .contact-action-button {
+  letter-spacing: 0;
 }
 
 /* Code-built hero system dashboard */
@@ -480,6 +628,30 @@ body {
 }
 
 @media (max-width: 480px) {
+  .contact-heading {
+    font-size: 1.85rem;
+  }
+
+  .contact-action-card {
+    padding: 1.15rem;
+  }
+
+  .contact-action-button {
+    min-height: 2.8rem;
+    font-size: 0.72rem;
+  }
+
+  .contact-direct-details {
+    align-items: stretch;
+    justify-content: flex-start;
+    text-align: start;
+  }
+
+  .contact-direct-details a,
+  .contact-direct-details div {
+    width: 100%;
+  }
+
   .system-dashboard {
     padding: 0.7rem;
   }

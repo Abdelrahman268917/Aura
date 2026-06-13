@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
 import {
   ArrowRight, ArrowLeft, Globe, Zap, Shield, Target, Bot, Layers,
@@ -270,17 +271,42 @@ const content = {
     },
     contact: {
       badge: 'Get Started',
-      title: 'Ready to Transform Your Business Into a System?',
-      subtitle: 'Tell us where work slows down, gets repeated, or becomes difficult to manage. We will help identify the right starting point.',
+      title: 'Ready to turn your business into a system?',
+      subtitle: 'Start with a short message. We’ll understand where the chaos is, then recommend the right diagnosis, sprint, full system, or monthly support path.',
       email: 'amirelshazly66@gmail.com',
       phone: '+20 102 924 0066',
       location: 'Egypt / Remote',
-      questions: [
-        'How does your current workflow currently operate until final delivery?',
-        'Where do delays, re-work, or chaos appear most in your work?',
-        'What would a clearer, easier operating system change for your team?',
+      details: {
+        email: 'Email',
+        whatsapp: 'WhatsApp',
+        location: 'Location',
+      },
+      actions: [
+        {
+          label: 'A',
+          icon: 'target',
+          title: 'Start With Diagnosis',
+          text: 'Start with a focused diagnosis to understand your workflow, bottlenecks, tools, and best next step.',
+          cta: 'Start on WhatsApp',
+          type: 'diagnosis',
+        },
+        {
+          label: 'B',
+          icon: 'book',
+          title: 'Send a Business Brief',
+          text: 'Send a short brief about your business and what feels slow, scattered, manual, or unclear.',
+          cta: 'Send Email Brief',
+          type: 'brief',
+        },
+        {
+          label: 'C',
+          icon: 'refresh',
+          title: 'Discuss Monthly Support',
+          text: 'For businesses that want AURA to stay responsible for improving tools, workflows, automations, and system updates after launch.',
+          cta: 'Discuss Monthly Support',
+          type: 'monthly',
+        },
       ],
-      cta: 'Send a Business Brief',
     },
     footer: {
       tagline: 'Business Acceleration Studio',
@@ -296,7 +322,7 @@ const content = {
       packages: 'الباقات',
       why: 'لماذا نحن',
       contact: 'تواصل',
-      cta: 'ابدأ الآن',
+      cta: 'ابدأ التشخيص',
     },
     loader: {
       tagline: 'استديو تسريع الأعمال',
@@ -309,8 +335,8 @@ const content = {
       title4: 'إلى نظام.',
       subheadline: 'نصمم سير العمل، ونبني الأدوات، وندير النظام مع نمو عملك.',
       description: 'نحن لا نبيع أدوات أو ذكاء اصطناعياً فقط. نبدأ بفهم طريقة عمل شركتك فعلياً، ثم نصمم طبقة تشغيلية تجعل التنفيذ أسهل، والتحسين مستمراً، والنمو قابلاً للتوسع.',
-      cta1: 'ابدأ الآن',
-      cta2: 'شاهد كيف نعمل',
+      cta1: 'ابدأ التشخيص',
+      cta2: 'اعرف طريقة العمل',
     },
     why: {
       badge: 'المشكلة',
@@ -431,7 +457,7 @@ const content = {
           'سبرنت استراتيجية المحتوى',
           'سبرنت هيكلة المشروع',
         ],
-        cta: 'ابدأ بالتشخيص',
+        cta: 'ابدأ بتشخيص مبدئي',
       },
       full: {
         name: 'النظام الكامل',
@@ -446,16 +472,16 @@ const content = {
           'خارطة توسع مستقبلية',
           'تسليم واضح وخارطة للتحسين المستقبلي',
         ],
-        cta: 'ابدأ الآن',
+        cta: 'ابدأ التشخيص',
       },
       managed: {
-        name: 'شريك الأنظمة المُدارة',
+        name: 'شريك إدارة وتحسين الأنظمة',
         subtitle: 'ملكية مستمرة بعد الإطلاق',
         badge: 'شراكة شهرية',
         duration: 'نطاق شهري مخصص',
         description: 'بعد بناء النظام، يمكننا الاستمرار شهرياً لمراقبة الأدوات ومسارات العمل والأتمتة وتحسينها وتكييفها مع نمو عملك.',
         features: ['مراجعة شهرية للنظام', 'مراقبة الأدوات وتحسينها', 'تحديثات سير العمل', 'تحسين الأتمتة', 'خارطة أولويات', 'طلبات وتحسينات جديدة'],
-        cta: 'ناقش الدعم الشهري',
+        cta: 'ناقش المتابعة الشهرية',
       },
       guide: {
         title: 'دليل اختيار نقطة البداية',
@@ -477,7 +503,7 @@ const content = {
         { icon: 'award', title: 'خبرة أكثر من ٧ سنوات في بناء المشاريع', desc: 'خبرة عبر البرمجيات والتعليم والأتمتة والعمليات وأنظمة الأعمال.', quote: 'من تجارب مبكرة إلى مسارات عمل وأدوات وطبقات أتمتة وأنظمة تشغيل قابلة للتوسع.' },
         { icon: 'target', title: 'نفكر من مسار العمل أولاً', desc: 'نفهم كيف يعمل فريقك فعلياً قبل اقتراح أداة أو بناء نظام.', quote: 'يجب أن يناسب النظام العمل، لا أن يجبر العمل على التكيف معه.' },
         { icon: 'layers', title: 'طبقة تشغيل واحدة مترابطة', desc: 'نصمم مسارات العمل والأدوات الداخلية والبيانات واللوحات والأتمتة لتعمل معاً.', quote: 'وضوح العملية كاملة أهم من إضافة تطبيق جديد.' },
-        { icon: 'refresh', title: 'ملكية مستمرة بعد الإطلاق', desc: 'يحافظ شريك الأنظمة المُدارة على النظام مفيداً ومراقباً وقابلاً للتكيف بعد التسليم.', quote: 'الإطلاق بداية دورة التحسين وليس نهايتها.' },
+        { icon: 'refresh', title: 'ملكية مستمرة بعد الإطلاق', desc: 'يحافظ شريك إدارة وتحسين الأنظمة على النظام مفيداً ومراقباً وقابلاً للتكيف بعد التسليم.', quote: 'الإطلاق بداية دورة التحسين وليس نهايتها.' },
       ],
     },
     examples: {
@@ -545,17 +571,42 @@ const content = {
     },
     contact: {
       badge: 'ابدأ',
-      title: 'هل أنت مستعد لتحويل عملك إلى نظام؟',
-      subtitle: 'أخبرنا أين يتباطأ العمل أو يتكرر أو يصبح صعب الإدارة، وسنساعدك في تحديد نقطة البداية المناسبة.',
+      title: 'جاهز تحوّل شغلك إلى نظام واضح؟',
+      subtitle: 'ابدأ برسالة قصيرة. سنفهم أين توجد الفوضى، ثم نقترح نقطة البداية المناسبة: تشخيص، سبرنت محدد، نظام كامل، أو متابعة شهرية.',
       email: 'amirelshazly66@gmail.com',
       phone: '+20 102 924 0066',
       location: 'مصر / عن بُعد',
-      questions: [
-        'كيف يعمل سير عملك الحالي حتى التسليم النهائي؟',
-        'أين يظهر التأخير أو إعادة العمل أو الفوضى أكثر في عملك؟',
-        'ماذا سيغير نظام تشغيل أوضح وأسهل لفريقك؟',
+      details: {
+        email: 'البريد الإلكتروني',
+        whatsapp: 'واتساب',
+        location: 'الموقع',
+      },
+      actions: [
+        {
+          label: 'A',
+          icon: 'target',
+          title: 'ابدأ بتشخيص مبدئي',
+          text: 'ابدأ بتشخيص مركّز لفهم سير العمل، نقاط التعطّل، الأدوات، وأفضل خطوة تالية.',
+          cta: 'ابدأ عبر واتساب',
+          type: 'diagnosis',
+        },
+        {
+          label: 'B',
+          icon: 'book',
+          title: 'أرسل نبذة عن نشاطك',
+          text: 'أرسل نبذة قصيرة عن نشاطك وما تشعر أنه بطيء، متفرق، يدوي، أو غير واضح.',
+          cta: 'أرسل نبذة عن نشاطك',
+          type: 'brief',
+        },
+        {
+          label: 'C',
+          icon: 'refresh',
+          title: 'ناقش المتابعة الشهرية',
+          text: 'للشركات التي تريد أن تظل AURA مسؤولة عن تحسين الأدوات، سير العمل، الأتمتة، وتحديث النظام بعد الإطلاق.',
+          cta: 'ناقش المتابعة الشهرية',
+          type: 'monthly',
+        },
       ],
-      cta: 'أرسل ملخص عملك',
     },
     footer: {
       tagline: 'استديو تسريع الأعمال',
@@ -564,6 +615,54 @@ const content = {
     },
   },
 };
+
+const WHATSAPP_NUMBER = '201029240066';
+const CONTACT_EMAIL = 'amirelshazly66@gmail.com';
+
+const contactMessages = {
+  en: {
+    diagnosis: 'Hi AURA team, I’m interested in turning my business operations into a clear system. I’d like to start with a business diagnosis.',
+    monthly: 'Hi AURA team, I’m interested in Managed Systems Partner / monthly support for managing and improving our workflows, tools, and automations.',
+    briefSubject: 'AURA Business Brief',
+    briefBody: `Hi AURA team,
+
+I would like to share a short brief about my business.
+
+Business name:
+Business type:
+What feels chaotic or unclear:
+What I want to improve:
+Website/social link:
+
+Thank you.`,
+  },
+  ar: {
+    diagnosis: 'أهلًا فريق AURA، أود معرفة كيف يمكنكم مساعدتنا في تحويل سير العمل داخل الشركة إلى نظام أوضح وأسهل في الإدارة. أريد البدء بتشخيص مبدئي.',
+    monthly: 'أهلًا فريق AURA، مهتم بخدمة المتابعة الشهرية لإدارة وتحسين الأدوات، سير العمل، والأتمتة داخل الشركة بعد الإطلاق.',
+    briefSubject: 'نبذة عن العمل - AURA',
+    briefBody: `أهلًا فريق AURA،
+
+أرغب في إرسال نبذة قصيرة عن نشاطي.
+
+اسم النشاط:
+نوع النشاط:
+ما الذي يبدو فوضويًا أو غير واضح:
+ما الذي أريد تحسينه:
+رابط الموقع أو السوشيال:
+
+شكرًا.`,
+  },
+};
+
+function getWhatsAppLink(lang: 'en' | 'ar', type: 'diagnosis' | 'monthly' = 'diagnosis') {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(contactMessages[lang][type])}`;
+}
+
+function getBusinessBriefLink(lang: 'en' | 'ar') {
+  const { briefSubject, briefBody } = contactMessages[lang];
+  const encodedBody = encodeURIComponent(briefBody.replace(/\n/g, '\r\n'));
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(briefSubject)}&body=${encodedBody}`;
+}
 
 /* ─── Icon Mapper ──────────────────────────────────────── */
 function getIcon(name: string, size = 20) {
@@ -729,6 +828,7 @@ function Navigation({ lang, setLang, scrolled }: { lang: 'en' | 'ar'; setLang: (
   const [mobileOpen, setMobileOpen] = useState(false);
   const t = content[lang].nav;
   const isRtl = lang === 'ar';
+  const diagnosisLink = getWhatsAppLink(lang);
 
   const links = [
     { label: t.home, href: '#home' },
@@ -757,6 +857,7 @@ function Navigation({ lang, setLang, scrolled }: { lang: 'en' | 'ar'; setLang: (
         }}
       >
         <a href="#home" className="flex items-center justify-center gap-2 px-4 h-12 group">
+          <Image src="/brand/aura-mark.png" alt="" width={24} height={24} className="h-6 w-6 object-contain" priority />
           <span className="text-xl font-bold text-gold-gradient">AURA</span>
           <span className="hidden xl:block text-[0.52rem] leading-tight tracking-[0.12em] uppercase max-w-[5.5rem]" style={{ color: 'rgba(255,255,255,0.45)' }}>Business Acceleration Studio</span>
         </a>
@@ -787,8 +888,10 @@ function Navigation({ lang, setLang, scrolled }: { lang: 'en' | 'ar'; setLang: (
         </button>
 
         <a
-          href="#contact"
-          className="flex items-center h-12 px-4 gap-1.5 text-[0.62rem] tracking-[0.1em] uppercase font-bold rounded-r-full transition-all duration-300"
+          href={diagnosisLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden sm:flex items-center h-12 px-4 gap-1.5 text-[0.62rem] tracking-[0.1em] uppercase font-bold rounded-full transition-all duration-300"
           style={{ background: '#F2A900', color: '#1A0A2E' }}
         >
           {t.cta}
@@ -828,6 +931,17 @@ function Navigation({ lang, setLang, scrolled }: { lang: 'en' | 'ar'; setLang: (
                 {link.label}
               </a>
             ))}
+            <a
+              href={diagnosisLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold"
+              style={{ background: '#F2A900', color: '#090416' }}
+            >
+              {t.cta}
+              {isRtl ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -843,6 +957,7 @@ function HeroSection({ lang }: { lang: 'en' | 'ar' }) {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const diagnosisLink = getWhatsAppLink(lang);
 
   return (
     <section id="home" ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-36 lg:pb-24">
@@ -917,7 +1032,9 @@ function HeroSection({ lang }: { lang: 'en' | 'ar' }) {
               className="flex flex-col sm:flex-row gap-4 items-center w-full sm:w-auto"
             >
               <a
-                href="#contact"
+                href={diagnosisLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-sm tracking-wider uppercase transition-all duration-300 hover:scale-105 active:scale-95"
                 style={{ background: '#F2A900', color: '#090416', boxShadow: '0 8px 30px rgba(242,169,0,0.3)' }}
               >
@@ -1246,6 +1363,8 @@ function ProcessSection({ lang }: { lang: 'en' | 'ar' }) {
 function PackagesSection({ lang }: { lang: 'en' | 'ar' }) {
   const t = content[lang].packages;
   const isRtl = lang === 'ar';
+  const diagnosisLink = getWhatsAppLink(lang);
+  const monthlyLink = getWhatsAppLink(lang, 'monthly');
 
   return (
     <AnimatedSection id="packages" className="py-20 md:py-24 px-6 relative overflow-hidden" style={{ background: 'transparent' }}>
@@ -1295,7 +1414,9 @@ function PackagesSection({ lang }: { lang: 'en' | 'ar' }) {
               ))}
             </ul>
             <a
-              href="#contact"
+              href={diagnosisLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-sm tracking-wider uppercase transition-all duration-300 hover:scale-105"
               style={{ border: '2px solid rgba(139,92,246,0.3)', color: '#fff', background: 'rgba(139,92,246,0.1)' }}
             >
@@ -1336,7 +1457,9 @@ function PackagesSection({ lang }: { lang: 'en' | 'ar' }) {
               ))}
             </ul>
             <a
-              href="#contact"
+              href={diagnosisLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-sm tracking-wider uppercase transition-all duration-300 hover:scale-105"
               style={{ background: '#F2A900', color: '#090416', boxShadow: '0 0 20px rgba(242,169,0,0.3)' }}
             >
@@ -1379,7 +1502,9 @@ function PackagesSection({ lang }: { lang: 'en' | 'ar' }) {
               ))}
             </ul>
             <a
-              href="#contact"
+              href={monthlyLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-sm tracking-wider uppercase transition-all duration-300 hover:scale-105"
               style={{ border: '1px solid rgba(242,169,0,0.45)', color: '#FFD666', background: 'rgba(242,169,0,0.07)' }}
             >
@@ -1583,61 +1708,69 @@ function ToolsSection({ lang }: { lang: 'en' | 'ar' }) {
 function ContactSection({ lang }: { lang: 'en' | 'ar' }) {
   const t = content[lang].contact;
   const isRtl = lang === 'ar';
+  const diagnosisLink = getWhatsAppLink(lang);
+  const monthlyLink = getWhatsAppLink(lang, 'monthly');
+  const briefLink = getBusinessBriefLink(lang);
 
   return (
     <AnimatedSection id="contact" className="py-20 md:py-24 px-6 relative overflow-hidden" style={{ background: 'transparent' }}>
       <div className="absolute inset-0 bg-radial-gradient from-purple-900/5 via-transparent to-transparent -z-10" />
-      <div className="max-w-4xl mx-auto text-center">
+      <div className="max-w-6xl mx-auto text-center">
         <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-6" style={{ background: 'rgba(139,92,246,0.1)', color: '#A78BFA', border: '1px solid rgba(139,92,246,0.15)' }}>
           {t.badge}
         </span>
-        <h2 className="text-3xl md:text-5xl font-extrabold mb-4" style={{ color: '#fff' }}>{t.title}</h2>
-        <p className="text-base md:text-lg max-w-xl mx-auto mb-12" style={{ color: '#B5AEC4' }} dir={isRtl ? 'rtl' : 'ltr'}>
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-4 contact-heading" style={{ color: '#fff' }}>{t.title}</h2>
+        <p className="text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: '#B5AEC4' }} dir={isRtl ? 'rtl' : 'ltr'}>
           {t.subtitle}
         </p>
 
-        <div className="grid sm:grid-cols-3 gap-4 mb-12">
-          <a href={`mailto:${t.email}`} className="p-5 rounded-2xl flex flex-col items-center gap-2 transition-all duration-300 hover:-translate-y-1" style={{ background: 'rgba(20,9,38,0.4)', border: '1px solid rgba(139,92,246,0.15)', backdropFilter: 'blur(10px)' }}>
-            <Mail size={20} style={{ color: '#F2A900' }} />
-            <span className="text-xs" style={{ color: 'rgba(255,255,255,0.8)' }}>{t.email}</span>
+        <div className="grid md:grid-cols-3 gap-5 text-start">
+          {t.actions.map((action, index) => {
+            const href = action.type === 'brief' ? briefLink : action.type === 'monthly' ? monthlyLink : diagnosisLink;
+            const isExternal = action.type !== 'brief';
+            return (
+              <motion.article
+                key={action.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="contact-action-card"
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <span className="contact-route-label">{action.label}</span>
+                  <span className="contact-action-icon">{getIcon(action.icon, 18)}</span>
+                </div>
+                <h3>{action.title}</h3>
+                <p dir={isRtl ? 'rtl' : 'ltr'}>{action.text}</p>
+                <a
+                  href={href}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
+                  className={index === 0 ? 'contact-action-button is-primary' : 'contact-action-button'}
+                >
+                  {action.cta}
+                  {isRtl ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
+                </a>
+              </motion.article>
+            );
+          })}
+        </div>
+
+        <div className="contact-direct-details">
+          <a href={`mailto:${t.email}`}>
+            <Mail size={16} />
+            <span><strong>{t.details.email}:</strong> {t.email}</span>
           </a>
-          <a href={`https://wa.me/201029240066`} target="_blank" rel="noopener noreferrer" className="p-5 rounded-2xl flex flex-col items-center gap-2 transition-all duration-300 hover:-translate-y-1" style={{ background: 'rgba(20,9,38,0.4)', border: '1px solid rgba(139,92,246,0.15)', backdropFilter: 'blur(10px)' }}>
-            <Phone size={20} style={{ color: '#F2A900' }} />
-            <span className="text-xs" style={{ color: 'rgba(255,255,255,0.8)' }} dir="ltr">{t.phone}</span>
+          <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer">
+            <Phone size={16} />
+            <span><strong>{t.details.whatsapp}:</strong> <bdi>{t.phone}</bdi></span>
           </a>
-          <div className="p-5 rounded-2xl flex flex-col items-center gap-2" style={{ background: 'rgba(20,9,38,0.4)', border: '1px solid rgba(139,92,246,0.15)', backdropFilter: 'blur(10px)' }}>
-            <MapPin size={20} style={{ color: '#F2A900' }} />
-            <span className="text-xs" style={{ color: 'rgba(255,255,255,0.8)' }} dir={isRtl ? 'rtl' : 'ltr'}>{t.location}</span>
+          <div>
+            <MapPin size={16} />
+            <span><strong>{t.details.location}:</strong> {t.location}</span>
           </div>
         </div>
-
-        {/* Questions */}
-        <div className={`p-8 rounded-3xl mb-8 ${isRtl ? 'text-right' : 'text-left'}`} style={{
-          background: 'linear-gradient(135deg, #100624 0%, #1D0E3B 50%, #2A134E 100%)',
-          border: '1px solid rgba(139,92,246,0.2)',
-          boxShadow: '0 10px 40px rgba(0,0,0,0.4)',
-        }}>
-          <h3 className="font-bold text-lg mb-6 text-gold-gradient text-center">
-            {lang === 'en' ? 'A Useful Starting Brief' : 'ملخص مفيد لنقطة البداية'}
-          </h3>
-          <ol className="space-y-4">
-            {t.questions.map((q, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0" style={{ background: '#F2A900', color: '#090416' }}>{i + 1}</span>
-                <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }} dir={isRtl ? 'rtl' : 'ltr'}>{q}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-
-        <a
-          href={`mailto:${t.email}?subject=${lang === 'en' ? 'AURA Business Brief' : 'ملخص عمل إلى AURA'}`}
-          className="inline-flex items-center gap-2 px-10 py-4 rounded-full font-bold text-sm tracking-wider uppercase transition-all duration-300 hover:scale-105 active:scale-95"
-          style={{ background: '#F2A900', color: '#090416', boxShadow: '0 8px 30px rgba(242,169,0,0.3)' }}
-        >
-          {t.cta}
-          {isRtl ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
-        </a>
       </div>
     </AnimatedSection>
   );
@@ -1646,13 +1779,21 @@ function ContactSection({ lang }: { lang: 'en' | 'ar' }) {
 /* ─── Footer ──────────────────────────────────────────── */
 function Footer({ lang }: { lang: 'en' | 'ar' }) {
   const t = content[lang].footer;
+  const contact = content[lang].contact;
 
   return (
     <footer className="py-8 px-6 text-center" style={{ background: '#090416', borderTop: '1px solid rgba(139,92,246,0.1)' }}>
       <div className="max-w-4xl mx-auto">
-        <div className="text-2xl font-extrabold text-gold-gradient mb-2">AURA</div>
+        <div className="inline-flex items-center justify-center gap-2 mb-2">
+          <Image src="/brand/aura-mark.png" alt="" width={30} height={30} className="h-7 w-7 object-contain" />
+          <span className="text-2xl font-extrabold text-gold-gradient">AURA</span>
+        </div>
         <p className="text-xs tracking-widest uppercase mb-4" style={{ color: 'rgba(242,169,0,0.6)' }}>{t.tagline}</p>
-        <div className="h-px mb-6" style={{ background: 'rgba(139,92,246,0.1)' }} />
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-5 text-xs">
+          <a href={`mailto:${contact.email}`} className="transition-colors hover:text-white" style={{ color: '#B5AEC4' }}>{contact.email}</a>
+          <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white" style={{ color: '#B5AEC4' }} dir="ltr">{contact.phone}</a>
+        </div>
+        <div className="h-px mb-5" style={{ background: 'rgba(139,92,246,0.1)' }} />
         <p className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>
           © {new Date().getFullYear()} AURA. {t.rights} {t.built}
         </p>
