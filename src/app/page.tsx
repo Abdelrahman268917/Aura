@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useSyncExternalStore } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
 import {
@@ -321,32 +321,32 @@ const content = {
     nav: {
       home: 'الرئيسية',
       services: 'الخدمات',
-      process: 'المنهجية',
-      packages: 'الباقات',
-      why: 'لماذا نحن',
+      process: 'طريقة العمل',
+      packages: 'المسارات',
+      why: 'لماذا AURA',
       contact: 'تواصل',
-      cta: 'ابدأ التشخيص',
+      cta: 'ابدأ الآن',
     },
     loader: {
-      tagline: 'استديو تسريع الأعمال',
-      line1: 'نبني بذكاء. نعمل أسرع.',
-      line2: 'نحوّل عملك إلى نظام واضح.',
+      tagline: 'استوديو تسريع الأعمال',
+      line1: 'ابنِ عملك بذكاء. اعمل أسرع.',
+      line2: 'حوّل شركتك إلى نظام واضح.',
     },
     hero: {
-      badge: 'AURA · استديو تسريع الأعمال',
-      title1: 'نبني بذكاء.',
-      title2: 'نعمل أسرع.',
-      title3: 'حوّل عملك',
+      badge: 'AURA · استوديو تسريع الأعمال',
+      title1: 'ابنِ عملك بذكاء.',
+      title2: 'اعمل أسرع.',
+      title3: 'حوّل شركتك',
       title4: 'إلى نظام.',
-      subheadline: 'نصمم سير العمل، ونبني الأدوات، وندير النظام مع نمو عملك.',
-      description: 'نحن لا نبيع أدوات أو ذكاء اصطناعياً فقط. نبدأ بفهم طريقة عمل شركتك فعلياً، ثم نصمم طبقة تشغيلية تجعل التنفيذ أسهل، والتحسين مستمراً، والنمو قابلاً للتوسع.',
+      subheadline: 'نصمم سير العمل، نبني الأدوات، ونساعدك على إدارة النظام مع نمو شركتك.',
+      description: 'لا نبدأ بالأداة قبل فهم طريقة عمل شركتك. نحلل التشغيل، نرسم المسار، ثم نبني طبقة عملية تجعل المتابعة أوضح، والتنفيذ أسرع، والنمو أكثر قابلية للإدارة.',
       cta1: 'ابدأ التشخيص',
       cta2: 'اعرف طريقة العمل',
     },
     why: {
       badge: 'المشكلة',
-      title: 'لماذا استديو تسريع الأعمال؟',
-      subtitle: 'المشكلة الحقيقية في معظم الشركات اليوم هي التأثير على الشركة نفسها:',
+      title: 'حين يكبر العمل قبل أن يكتمل النظام',
+      subtitle: 'تظهر المشكلة عندما تتوزع المتابعة والملفات والقرارات بين أدوات لا تعمل معًا.',
       problems: [
         { icon: 'scatter', title: 'عمل متفرق', desc: 'محادثات وملفات وقرارات موزعة بين قنوات وجداول غير مترابطة' },
         { icon: 'delay', title: 'تأخير التسليم', desc: 'أدوات العمل لا تناسب مسار العمل الفعلي — لا تنسيق حقيقي' },
@@ -354,68 +354,68 @@ const content = {
         { icon: 'loss', title: 'خسارة أعمال محتملة', desc: 'قرارات بالتخمين، مخاطر عالية، فرص توسع ضائعة' },
       ],
       solution: {
-        title: 'ماذا نفعل بشكل مختلف؟',
-        desc: 'نبدأ بفهم طريقة عمل شركتك الفعلية، ثم نصمم طبقة تشغيلية تجعل التنفيذ طبيعياً، والتحسين مستمراً، والنمو قابلاً للتوسع. لا نبيع أدوات — نبني أنظمة.',
+        title: 'كيف تساعدك AURA؟',
+        desc: 'AURA ليست مجرد أدوات أو تسويق منفصل. نساعد الشركات على تحويل العمل اليومي إلى نظام واضح: تشخيص، تنظيم سير العمل، بناء أدوات ولوحات متابعة، أتمتة، وتسويق مرتبط بالتشغيل والنمو.',
       },
     },
     services: {
-      badge: 'طبقات الخدمة',
-      title: 'طبقات خدمات مترابطة',
-      subtitle: 'كل طبقة مصممة لتنتج نتيجة قابلة للتوسع للشركة. الطبقات تعمل معاً كنظام تسريع أعمال كامل.',
+      badge: 'خدمات AURA',
+      title: 'خدماتنا',
+      subtitle: 'يمكنك البدء بمساعدة شاملة، أو اختيار خدمة محددة حسب احتياج شركتك الحالي.',
       layers: [
         {
           num: '٠١',
-          title: 'تشخيص مسار العمل',
-          problem: 'قرارات بلا بيانات، هدر موارد، بطء كشف المشاكل، أولويات غير واضحة',
-          solution: 'تدقيق تشغيلي دقيق مع خريطة خيارات وتقرير أولويات للتنفيذ الفوري',
-          kpis: ['وقت القرار', 'عدد الخيارات الكامنة', 'نسبة عنق الزجاجة'],
-          impact: 'النتيجة: أولويات أوضح وخارطة عملية قابلة للتنفيذ',
-          icon: 'search',
-        },
-        {
-          num: '٠٢',
-          title: 'تصميم مسار العمل',
-          problem: 'عمل متفرق، مسؤوليات غير واضحة، تأخير متكرر في التسليم، مواعيد متعارضة',
-          solution: 'نظام تشغيلي كامل: مراحل واضحة + مسؤوليات محددة + موافقات + دورية تشغيلية أسبوعية',
-          kpis: ['سرعة التسليم', 'وضوح المسؤولية', 'معدل إعادة العمل'],
-          impact: 'النتيجة: تسليم أكثر سلاسة ومسؤوليات أوضح وفجوات أقل',
+          title: 'تصميم سير العمل والتشغيل',
+          problem: 'نحوّل طريقة العمل اليومية إلى خطوات واضحة، بمسؤوليات محددة ومراحل متابعة قابلة للقياس.',
+          solution: 'نرسم المسار الحالي، نحدد نقاط التعطيل، ثم نصمم سير عمل عملي يناسب الفريق وطريقة التسليم.',
+          kpis: ['خريطة سير العمل', 'توزيع المسؤوليات', 'تحديد نقاط التعطيل', 'توصيات تشغيلية واضحة'],
+          impact: 'النتيجة: تشغيل أوضح ومسؤوليات أسهل في المتابعة.',
           icon: 'flow',
         },
         {
+          num: '٠٢',
+          title: 'لوحات الإدارة وأنظمة المتابعة',
+          problem: 'نبني لوحات متابعة تساعد الإدارة على رؤية المشاريع والعملاء والمهام والتحصيل والتسويق في مكان واحد.',
+          solution: 'نحدد المؤشرات المهمة ومصادر البيانات، ثم نبني لوحة تخدم القرار والمتابعة اليومية.',
+          kpis: ['لوحة إدارة تنفيذية', 'مؤشرات متابعة', 'تقارير أسبوعية أو شهرية', 'رؤية موحدة للفريق'],
+          impact: 'النتيجة: صورة موحدة تساعد الإدارة على التدخل في الوقت المناسب.',
+          icon: 'trend',
+        },
+        {
           num: '٠٣',
-          title: 'بناء الأدوات الداخلية',
-          problem: 'أدوات لا تناسب العمل، فريق يعمل بجداول وتذكيرات، لا نظام متابعة، لا تتبع أداء',
-          solution: 'CRM خفيف + أنظمة متابعة مخصصة + قوالب ذكية + بوابات إدخال + قواعد بيانات',
-          kpis: ['دقة البيانات', 'تقليل المهام اليدوية', 'معدل استخدام الأدوات يومياً'],
-          impact: 'النتيجة: أدوات تدعم الفريق بدلاً من إضافة أعمال إدارية جديدة',
+          title: 'الأدوات والبرامج الداخلية',
+          problem: 'نصمم أدوات داخلية بسيطة ومخصصة لطريقة عملك، بدل الاعتماد على ملفات متفرقة أو متابعة يدوية مرهقة.',
+          solution: 'نبني الأداة حول الاستخدام الفعلي للفريق، مع حقول واضحة وتدفق بسيط للبيانات والمتابعة.',
+          kpis: ['CRM مخصص', 'أدوات متابعة المشاريع', 'نماذج إدخال بيانات', 'نظام ملفات وروابط منظم'],
+          impact: 'النتيجة: أدوات تخدم العمل اليومي بدل أن تضيف عبئًا جديدًا.',
           icon: 'build',
         },
         {
           num: '٠٤',
-          title: 'دمج الذكاء الاصطناعي والأتمتة',
-          problem: 'مهام متكررة تستهلك الفريق، أخطاء بشرية في العمليات، لا أتمتة ذكية مرتبطة بالعمل',
-          solution: 'نقاط مراجعة بشرية للجودة + n8n مخصص + CrewAI + وكلاء AI + تدفقات مؤتمتة',
-          kpis: ['عدد المهام المؤتمتة', 'تقليل الأخطاء', 'وقت التوفير الأسبوعي'],
-          impact: 'النتيجة: أتمتة موثوقة مع مراجعة بشرية حيث تهم الجودة',
+          title: 'الأتمتة ووكلاء الذكاء الاصطناعي',
+          problem: 'نربط الخطوات المتكررة بتنبيهات وتقارير ذكية لتقليل المتابعة اليدوية وتحويل البيانات إلى إجراء.',
+          solution: 'نحدد نقاط الأتمتة المناسبة ونضيف مراجعة بشرية حيث تكون الجودة أو الموافقة ضرورية.',
+          kpis: ['تنبيهات تلقائية', 'تقارير دورية', 'وكلاء متابعة وتحليل', 'ربط بين الأدوات المستخدمة'],
+          impact: 'النتيجة: متابعة أقل يدويًا وتدفق معلومات أكثر انتظامًا.',
           icon: 'bot',
         },
         {
           num: '٠٥',
-          title: 'استراتيجية المحتوى والتسويق',
-          problem: 'محتوى عشوائي، إنفاق بلا عائد، لا تميز واضح، لا استراتيجية محتوى',
-          solution: 'نظام محتوى مركز بموضوعات واضحة ومسار إنتاج ونقاط مراجعة وتعلم من الأداء',
-          kpis: ['نمو المتابعين', 'الوصول المتكرر الشهري', 'معدل التحويل', 'تكلفة العميل المحتمل'],
-          impact: 'النتيجة: قرارات محتوى أكثر اتساقاً وعملية إنتاج قابلة للتكرار',
+          title: 'نظام التسويق والنمو',
+          problem: 'نربط التسويق بالتشغيل والمبيعات حتى تتحول الحملات والمحتوى إلى فرص يمكن تتبعها وإدارتها.',
+          solution: 'نصمم مسارًا واضحًا من المحتوى أو الحملة إلى العميل المحتمل والمتابعة وقراءة الأداء.',
+          kpis: ['استراتيجية محتوى', 'صفحات هبوط', 'تتبع العملاء المحتملين', 'تقارير أداء واضحة'],
+          impact: 'النتيجة: تسويق مرتبط بالمتابعة والقرار، وليس نشاطًا منفصلًا.',
           icon: 'trend',
         },
         {
           num: '٠٦',
-          title: 'هيكلة الشركات والمشاريع الناشئة',
-          problem: 'فكرة غير واضحة، لا نموذج تسليم، إطلاق متأخر، لا تخطيط استراتيجي للمشروع',
-          solution: 'عرض واضح ومحدد + نموذج تسليم قابل للتكرار + خطة إطلاق + استراتيجية أول إيراد',
-          kpis: ['وضوح العرض للمستثمر', 'وقت الإطلاق', 'معدل الاحتفاظ', 'سرعة أول إيراد'],
-          impact: 'النتيجة: عرض ونموذج تسليم ومسار أوضح من الفكرة إلى الإطلاق',
-          icon: 'rocket',
+          title: 'شريك إدارة وتحسين الأنظمة',
+          problem: 'بعد الإطلاق، نستمر في مراجعة النظام وتحسينه شهريًا حسب احتياج الشركة وتطور العمل.',
+          solution: 'نتابع الأداء والطلبات الجديدة ونرتب الأولويات ونحدّث الأدوات واللوحات والأتمتة عند الحاجة.',
+          kpis: ['مراجعة شهرية', 'تحسينات مستمرة', 'تحديثات للوحة والأتمتة', 'أولويات الشهر التالي'],
+          impact: 'النتيجة: نظام يظل مفيدًا وقابلًا للتطوير بعد الإطلاق.',
+          icon: 'refresh',
         },
       ],
       who: [
@@ -426,15 +426,15 @@ const content = {
       ],
     },
     process: {
-      badge: 'المنهجية',
-      title: 'من التشخيص إلى التنفيذ القابل للتوسع',
-      subtitle: 'كل مرحلة لها هدف واضح ومحدد — لا عبارة عامة تخلق لبساً، بل اقتراح حقيقي مرتبط بالواقع الفعلي لشركتك.',
+      badge: 'طريقة العمل',
+      title: 'طريقة العمل',
+      subtitle: 'نبدأ بفهم العمل الحقيقي قبل بناء أي أداة أو حملة.',
       steps: [
-        { num: '٠١', title: 'التشخيص', desc: 'فهم العمل، رسم المسارات، تحديد الفجوات، نقاط الألم، المسؤوليات' },
-        { num: '٠٢', title: 'التصميم', desc: 'القرارات، المحاكاة، مسارات العمل، الأدوات، البيانات، مسارات الأتمتة' },
-        { num: '٠٣', title: 'البناء', desc: 'إنشاء أدوات تشغيلية، AI، سير عمل، أنظمة متابعة، لوحات معلومات' },
-        { num: '٠٤', title: 'الدمج', desc: 'توثيق سير العمل، جعل النظام سهل للاستخدام اليومي من قبل الفريق' },
-        { num: '٠٥', title: 'التحسين', desc: 'التحسين المستمر، توسيع النظام، جعل النمو طبيعياً' },
+        { num: '٠١', title: 'تشخيص الوضع الحالي', desc: 'نفهم طريقة العمل، مصادر البيانات، نقاط التعطيل، وأهم ما يحتاجه صاحب القرار.' },
+        { num: '٠٢', title: 'تصميم النظام المناسب', desc: 'نرسم سير العمل، نحدد المسؤوليات، ونختار الأدوات واللوحات المطلوبة حسب الأولوية.' },
+        { num: '٠٣', title: 'البناء والتنفيذ', desc: 'نبني الطبقة العملية: لوحة متابعة، أدوات، أتمتة، أو نظام تسويق حسب النطاق المتفق عليه.' },
+        { num: '٠٤', title: 'التسليم والتدريب', desc: 'نراجع النظام مع الفريق، نوضح طريقة الاستخدام، ونسلّم الملفات والروابط والتوثيق.' },
+        { num: '٠٥', title: 'المتابعة والتحسين', desc: 'عند الاستمرار معنا، نتابع النظام شهريًا ونطوره حسب النتائج والاحتياج الجديد.' },
       ],
       questions: {
         title: 'كل نظام يجب أن يجيب عن ٣ أسئلة:',
@@ -446,46 +446,46 @@ const content = {
       },
     },
     packages: {
-      badge: 'الباقات',
-      title: 'اختر ما يناسب احتياجك',
-      subtitle: 'التشخيص الأولي سيساعد على تحديد المسار المناسب — لا تدفع مقابل ما لا تحتاجه.',
+      badge: 'مسارات التعاون',
+      title: 'مسارات التعاون',
+      subtitle: 'لا نثبت نطاقًا أو تكلفة قبل التشخيص. نحدد المسار المناسب بعد فهم طبيعة العمل.',
       sprint: {
-        name: 'سبرنت',
-        subtitle: 'عندما تحتاج شيئاً واحداً محدداً',
-        badge: 'الأفضل لاحتياج محدد',
+        name: 'تشخيص وبداية منظمة',
+        subtitle: 'لفهم المشكلة وتحديد أول خطوة عملية',
+        badge: 'نقطة البداية',
         scope: 'يُحدد بعد التشخيص',
         features: [
-          'سبرنت تشخيص وتحليل',
-          'سبرنت تصميم مسار العمل',
-          'سبرنت بناء الأدوات الداخلية',
-          'سبرنت أتمتة الذكاء الاصطناعي',
-          'سبرنت استراتيجية المحتوى',
-          'سبرنت هيكلة المشروع',
+          'تشخيص طريقة العمل الحالية',
+          'تحديد نقاط التعطيل والأولوية',
+          'خريطة أولية لسير العمل',
+          'توصية بخدمة محددة أو أكثر',
+          'تحديد البيانات والمواد المطلوبة',
+          'خطوة تالية واضحة وقابلة للتنفيذ',
         ],
-        cta: 'ابدأ بتشخيص مبدئي',
+        cta: 'ابدأ التشخيص',
       },
       full: {
-        name: 'النظام الكامل',
-        subtitle: 'أقصى تأثير — أفضل قيمة',
-        badge: 'الأكثر تأثيراً',
+        name: 'نظام تشغيل شامل',
+        subtitle: 'لربط التشغيل والأدوات والأتمتة والتسويق',
+        badge: 'مسار شامل',
         scope: 'نطاق مخصص حسب المشروع',
         features: [
-          'جميع طبقات الخدمة مدمجة',
-          'تشخيص + تصميم + بناء + أتمتة',
-          'هيكلة كاملة + استراتيجية محتوى',
-          'توثيق كامل + تدريب الفريق',
-          'خارطة توسع مستقبلية',
-          'تسليم واضح وخارطة للتحسين المستقبلي',
+          'تشخيص التشغيل والاحتياج',
+          'تصميم سير العمل والمسؤوليات',
+          'بناء اللوحات والأدوات المطلوبة',
+          'ربط الأتمتة ونقاط المراجعة',
+          'توثيق النظام وتدريب الفريق',
+          'خطة واضحة للتسليم والتطوير',
         ],
         cta: 'ابدأ التشخيص',
       },
       managed: {
-        name: 'شريك إدارة وتحسين الأنظمة',
-        subtitle: 'ملكية مستمرة بعد الإطلاق',
-        badge: 'شراكة شهرية',
+        name: 'شريك إدارة شهرية',
+        subtitle: 'لمتابعة النظام وتحسينه بعد الإطلاق',
+        badge: 'متابعة شهرية',
         scope: 'نطاق شهري مخصص',
-        description: 'بعد بناء النظام، يمكننا الاستمرار شهرياً لمراقبة الأدوات ومسارات العمل والأتمتة وتحسينها وتكييفها مع نمو عملك.',
-        features: ['مراجعة شهرية للنظام', 'مراقبة الأدوات وتحسينها', 'تحديثات سير العمل', 'تحسين الأتمتة', 'خارطة أولويات', 'طلبات وتحسينات جديدة'],
+        description: 'مناسب إذا كنت تريد استمرار AURA في متابعة النظام وتحسينه شهريًا حسب تطور العمل والاحتياجات الجديدة.',
+        features: ['مراجعة شهرية للنظام', 'تحسين الأدوات واللوحات', 'تحديث سير العمل', 'تطوير الأتمتة', 'ترتيب الأولويات', 'طلبات وتحسينات جديدة'],
         cta: 'ناقش المتابعة الشهرية',
       },
       guide: {
@@ -500,16 +500,16 @@ const content = {
           { if: 'إذا قلت: "نحتاج تحويلاً كاملاً للشركة"', then: '← نظام تسريع الأعمال الكامل ✓' },
         ],
       },
-      scopeNote: 'يتم تحديد النطاق وخطة التنفيذ بعد فهم طبيعة العمل، تعقيد سير العمل، الأدوات المطلوبة، عمق الأتمتة، ومشاركة الفريق.',
+      scopeNote: 'يتم تحديد النطاق والخطة بعد جلسة تشخيص وفهم سير العمل الفعلي، حجم البيانات، الأدوات الحالية، وعمق التنفيذ المطلوب.',
     },
     differentiators: {
-      badge: 'لماذا نحن',
-      title: 'نبني حول طريقة عمل شركتك',
+      badge: 'لماذا AURA',
+      title: 'لماذا AURA؟',
       items: [
-        { icon: 'award', title: 'خبرة أكثر من ٧ سنوات في بناء المشاريع', desc: 'خبرة عبر البرمجيات والتعليم والأتمتة والعمليات وأنظمة الأعمال.', quote: 'من تجارب مبكرة إلى مسارات عمل وأدوات وطبقات أتمتة وأنظمة تشغيل قابلة للتوسع.' },
-        { icon: 'target', title: 'نفكر من مسار العمل أولاً', desc: 'نفهم كيف يعمل فريقك فعلياً قبل اقتراح أداة أو بناء نظام.', quote: 'يجب أن يناسب النظام العمل، لا أن يجبر العمل على التكيف معه.' },
-        { icon: 'layers', title: 'طبقة تشغيل واحدة مترابطة', desc: 'نصمم مسارات العمل والأدوات الداخلية والبيانات واللوحات والأتمتة لتعمل معاً.', quote: 'وضوح العملية كاملة أهم من إضافة تطبيق جديد.' },
-        { icon: 'refresh', title: 'ملكية مستمرة بعد الإطلاق', desc: 'يحافظ شريك إدارة وتحسين الأنظمة على النظام مفيداً ومراقباً وقابلاً للتكيف بعد التسليم.', quote: 'الإطلاق بداية دورة التحسين وليس نهايتها.' },
+        { icon: 'target', title: 'نبدأ من سير العمل لا من الأداة', desc: 'الأداة وحدها لا تحل المشكلة إذا كان مسار العمل غير واضح. لذلك نفهم التشغيل أولًا.', quote: 'نختار التقنية بعد تحديد المشكلة والاستخدام اليومي.' },
+        { icon: 'layers', title: 'نربط الإدارة بالتنفيذ', desc: 'نساعد صاحب القرار على رؤية ما يحدث وما يحتاج تدخله وما يمكن تحسينه.', quote: 'المتابعة الجيدة تبدأ من معلومات واضحة وفي وقت مناسب.' },
+        { icon: 'refresh', title: 'نبني أنظمة قابلة للتطوير', desc: 'نصمم الحل بطريقة يمكن تطويرها لاحقًا بدل بناء شيء مؤقت يصعب تعديله.', quote: 'النظام الجيد يتطور مع العمل دون أن يفقد وضوحه.' },
+        { icon: 'trend', title: 'التسويق جزء من النظام', desc: 'نتعامل مع التسويق كمسار مرتبط بالعملاء والمبيعات والمتابعة، لا كمنشورات منفصلة.', quote: 'كل نشاط تسويقي يجب أن يرتبط بفرصة يمكن متابعتها.' },
       ],
     },
     examples: {
@@ -576,9 +576,9 @@ const content = {
       ],
     },
     contact: {
-      badge: 'ابدأ',
-      title: 'جاهز تحوّل شغلك إلى نظام واضح؟',
-      subtitle: 'ابدأ برسالة قصيرة. سنفهم أين توجد الفوضى، ثم نقترح نقطة البداية المناسبة: تشخيص، سبرنت محدد، نظام كامل، أو متابعة شهرية.',
+      badge: 'ابدأ الآن',
+      title: 'ابدأ بخطوة واضحة',
+      subtitle: 'أرسل لنا نبذة عن نشاطك، وسنساعدك على تحديد أول خطوة مناسبة لبناء نظام أوضح.',
       email: 'amirelshazly66@gmail.com',
       phone: '+20 102 924 0066',
       location: 'مصر / عن بُعد',
@@ -592,7 +592,7 @@ const content = {
           label: 'A',
           icon: 'target',
           title: 'ابدأ بتشخيص مبدئي',
-          text: 'ابدأ بتشخيص مركّز لفهم سير العمل، نقاط التعطّل، الأدوات، وأفضل خطوة تالية.',
+          text: 'أخبرنا عن طريقة العمل الحالية والمشكلة الأساسية التي تريد حلها.',
           cta: 'ابدأ عبر واتساب',
           type: 'diagnosis',
         },
@@ -600,22 +600,22 @@ const content = {
           label: 'B',
           icon: 'book',
           title: 'أرسل نبذة عن نشاطك',
-          text: 'أرسل نبذة قصيرة عن نشاطك وما تشعر أنه بطيء، متفرق، يدوي، أو غير واضح.',
-          cta: 'أرسل نبذة عن نشاطك',
+          text: 'شاركنا موقعك، طبيعة الخدمة، وأهم التحديات الحالية.',
+          cta: 'أرسل بريدًا',
           type: 'brief',
         },
         {
           label: 'C',
           icon: 'refresh',
           title: 'ناقش المتابعة الشهرية',
-          text: 'للشركات التي تريد أن تظل AURA مسؤولة عن تحسين الأدوات، سير العمل، الأتمتة، وتحديث النظام بعد الإطلاق.',
-          cta: 'ناقش المتابعة الشهرية',
+          text: 'إذا كان لديك نظام قائم وتحتاج جهة تتابعه وتحسنه شهريًا.',
+          cta: 'ناقش المتابعة',
           type: 'monthly',
         },
       ],
     },
     footer: {
-      tagline: 'استديو تسريع الأعمال',
+      tagline: 'استوديو تسريع الأعمال',
       rights: 'جميع الحقوق محفوظة.',
       built: 'بُني بدقة.',
     },
@@ -624,6 +624,28 @@ const content = {
 
 const WHATSAPP_NUMBER = '201029240066';
 const CONTACT_EMAIL = 'amirelshazly66@gmail.com';
+const LANGUAGE_STORAGE_KEY = 'aura-language';
+const LANGUAGE_CHANGE_EVENT = 'aura-language-change';
+
+function getLanguageSnapshot(): 'en' | 'ar' {
+  const savedLanguage = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
+  if (savedLanguage === 'en' || savedLanguage === 'ar') return savedLanguage;
+
+  const browserUsesArabic = [navigator.language, ...(navigator.languages ?? [])]
+    .some(language => language?.toLowerCase().startsWith('ar'));
+  if (browserUsesArabic) return 'ar';
+
+  return 'ar';
+}
+
+function subscribeToLanguagePreference(onStoreChange: () => void) {
+  window.addEventListener('storage', onStoreChange);
+  window.addEventListener(LANGUAGE_CHANGE_EVENT, onStoreChange);
+  return () => {
+    window.removeEventListener('storage', onStoreChange);
+    window.removeEventListener(LANGUAGE_CHANGE_EVENT, onStoreChange);
+  };
+}
 
 const contactMessages = {
   en: {
@@ -644,7 +666,7 @@ Thank you.`,
   },
   ar: {
     diagnosis: 'أهلًا فريق AURA، أود معرفة كيف يمكنكم مساعدتنا في تحويل سير العمل داخل الشركة إلى نظام أوضح وأسهل في الإدارة. أريد البدء بتشخيص مبدئي.',
-    monthly: 'أهلًا فريق AURA، مهتم بخدمة المتابعة الشهرية لإدارة وتحسين الأدوات، سير العمل، والأتمتة داخل الشركة بعد الإطلاق.',
+    monthly: 'أهلًا فريق AURA، أريد مناقشة المتابعة الشهرية وتحسين الأنظمة داخل شركتنا.',
     briefSubject: 'نبذة عن العمل - AURA',
     briefBody: `أهلًا فريق AURA،
 
@@ -809,10 +831,10 @@ function Navigation({ lang, setLang, scrolled }: { lang: 'en' | 'ar'; setLang: (
 
   return (
     <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      initial={{ x: '-50%', y: -100, opacity: 0 }}
+      animate={{ x: '-50%', y: 0, opacity: 1 }}
       transition={{ duration: 0.6, delay: 2.2 }}
-      className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-[100] transition-all duration-400"
+      className="fixed top-4 md:top-6 left-1/2 z-[100] transition-all duration-400"
       style={{ top: scrolled ? '0.5rem' : undefined }}
     >
       <div
@@ -828,7 +850,7 @@ function Navigation({ lang, setLang, scrolled }: { lang: 'en' | 'ar'; setLang: (
         <a href="#home" className="flex items-center justify-center gap-2 px-4 h-12 group">
           <Image src="/brand/aura-mark.png" alt="" width={24} height={24} className="h-6 w-6 object-contain" priority />
           <span className="text-xl font-bold text-gold-gradient">AURA</span>
-          <span className="hidden xl:block text-[0.52rem] leading-tight tracking-[0.12em] uppercase max-w-[5.5rem]" style={{ color: 'rgba(255,255,255,0.45)' }}>Business Acceleration Studio</span>
+          <span className={`hidden xl:block text-[0.52rem] leading-tight max-w-[5.5rem] ${isRtl ? 'tracking-normal' : 'tracking-[0.12em] uppercase'}`} style={{ color: 'rgba(255,255,255,0.45)' }}>{content[lang].loader.tagline}</span>
         </a>
 
         <div className="hidden md:flex items-center h-12">
@@ -836,7 +858,7 @@ function Navigation({ lang, setLang, scrolled }: { lang: 'en' | 'ar'; setLang: (
             <a
               key={link.href}
               href={link.href}
-              className="relative flex items-center h-full px-3 text-[0.62rem] tracking-[0.1em] uppercase font-medium transition-colors duration-300"
+              className={`relative flex items-center h-full px-3 text-[0.62rem] font-medium transition-colors duration-300 ${isRtl ? 'tracking-normal' : 'tracking-[0.1em] uppercase'}`}
               style={{ color: 'rgba(255,255,255,0.55)' }}
               onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.55)')}
@@ -850,6 +872,7 @@ function Navigation({ lang, setLang, scrolled }: { lang: 'en' | 'ar'; setLang: (
         <button
           onClick={() => setLang(lang === 'en' ? 'ar' : 'en')}
           className="flex items-center h-12 px-3 text-[0.62rem] tracking-[0.1em] uppercase font-medium transition-colors duration-300 gap-1.5"
+          aria-label={lang === 'ar' ? 'Switch to English' : 'التبديل إلى العربية'}
           style={{ color: 'rgba(255,255,255,0.55)' }}
         >
           <Globe size={14} />
@@ -860,7 +883,7 @@ function Navigation({ lang, setLang, scrolled }: { lang: 'en' | 'ar'; setLang: (
           href={diagnosisLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden sm:flex items-center h-12 px-4 gap-1.5 text-[0.62rem] tracking-[0.1em] uppercase font-bold rounded-full transition-all duration-300"
+          className={`hidden sm:flex items-center h-12 px-4 gap-1.5 text-[0.62rem] font-bold rounded-full transition-all duration-300 ${isRtl ? 'tracking-normal' : 'tracking-[0.1em] uppercase'}`}
           style={{ background: '#F2A900', color: '#1A0A2E' }}
         >
           {t.cta}
@@ -894,7 +917,7 @@ function Navigation({ lang, setLang, scrolled }: { lang: 'en' | 'ar'; setLang: (
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm tracking-widest uppercase py-2"
+                className={`text-sm py-2 ${isRtl ? 'tracking-normal' : 'tracking-widest uppercase'}`}
                 style={{ color: 'rgba(255,255,255,0.7)' }}
               >
                 {link.label}
@@ -1068,7 +1091,7 @@ function WhySection({ lang }: { lang: 'en' | 'ar' }) {
   const isRtl = lang === 'ar';
 
   return (
-    <AnimatedSection id="why" className="py-20 md:py-24 px-6 relative overflow-hidden" >
+    <AnimatedSection id="problem" className="py-20 md:py-24 px-6 relative overflow-hidden" >
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/5 to-transparent -z-10" />
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
@@ -1186,7 +1209,7 @@ function ServiceLayerCard({ layer, index, lang }: { layer: typeof content.en.ser
                 </div>
                 <div>
                   <h4 className="font-bold text-xs tracking-wider uppercase mb-2" style={{ color: '#FFD666' }}>
-                    {lang === 'en' ? 'KPIs' : 'مؤشرات الأداء'}
+                    {lang === 'en' ? 'KPIs' : 'المخرجات'}
                   </h4>
                   <ul className="space-y-1.5">
                     {layer.kpis.map((kpi, j) => (
@@ -1521,7 +1544,7 @@ function DifferentiatorsSection({ lang }: { lang: 'en' | 'ar' }) {
   const isRtl = lang === 'ar';
 
   return (
-    <AnimatedSection className="py-20 md:py-24 px-6 relative overflow-hidden" style={{ background: 'transparent' }}>
+    <AnimatedSection id="why" className="py-20 md:py-24 px-6 relative overflow-hidden" style={{ background: 'transparent' }}>
       <div className="absolute inset-0 bg-radial-gradient from-purple-900/5 via-transparent to-transparent -z-10" />
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
@@ -1778,12 +1801,17 @@ function Footer({ lang }: { lang: 'en' | 'ar' }) {
 /* ─── Main Page ───────────────────────────────────────── */
 export default function Home() {
   const [loading, setLoading] = useState(true);
-  const [lang, setLang] = useState<'en' | 'ar'>('en');
+  const lang = useSyncExternalStore(subscribeToLanguagePreference, getLanguageSnapshot, () => 'ar');
   const [scrolled, setScrolled] = useState(false);
 
   const handleLoaderComplete = useCallback(() => {
     setLoading(false);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  }, [lang]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -1794,14 +1822,22 @@ export default function Home() {
   }, []);
 
   const isRtl = lang === 'ar';
+  const changeLanguage = useCallback((nextLanguage: 'en' | 'ar') => {
+    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, nextLanguage);
+    window.dispatchEvent(new Event(LANGUAGE_CHANGE_EVENT));
+  }, []);
 
   return (
-    <div dir={isRtl ? 'rtl' : 'ltr'} className="min-h-screen flex flex-col" style={{ fontFamily: 'var(--font-outfit), sans-serif' }}>
+    <div
+      dir={isRtl ? 'rtl' : 'ltr'}
+      className="min-h-screen flex flex-col"
+      style={{ fontFamily: isRtl ? 'var(--font-cairo), sans-serif' : 'var(--font-outfit), sans-serif' }}
+    >
       <AnimatePresence>
         {loading && <Loader onComplete={handleLoaderComplete} lang={lang} />}
       </AnimatePresence>
 
-      <Navigation lang={lang} setLang={setLang} scrolled={scrolled} />
+      <Navigation lang={lang} setLang={changeLanguage} scrolled={scrolled} />
 
       <main className="flex-1">
         <HeroSection lang={lang} />

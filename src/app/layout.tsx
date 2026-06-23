@@ -17,17 +17,17 @@ const cairo = Cairo({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aura-swzc.vercel.app"),
-  title: "AURA | Business Acceleration Studio",
-  description: "Build smartly. Work faster. Turn your business into a system.",
-  keywords: ["AURA", "Business Acceleration Studio", "Workflow Design", "Automation", "Business Systems"],
+  title: "AURA | استوديو تسريع الأعمال",
+  description: "نساعد الشركات على تصميم سير العمل، بناء الأدوات، أتمتة المتابعة، وتحويل العمل اليومي إلى نظام واضح قابل للنمو.",
+  keywords: ["AURA", "استوديو تسريع الأعمال", "تصميم سير العمل", "الأتمتة", "أنظمة الأعمال", "Business Acceleration Studio"],
   authors: [{ name: "AURA Business Acceleration Studio" }],
   icons: {
     icon: "/icon.png",
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "AURA | Business Acceleration Studio",
-    description: "Build smartly. Work faster. Turn your business into a system.",
+    title: "AURA | استوديو تسريع الأعمال",
+    description: "نساعد الشركات على تصميم سير العمل، بناء الأدوات، أتمتة المتابعة، وتحويل العمل اليومي إلى نظام واضح قابل للنمو.",
     url: "https://aura-swzc.vercel.app",
     siteName: "AURA",
     images: [
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AURA | Business Acceleration Studio",
-    description: "Build smartly. Work faster. Turn your business into a system.",
+    title: "AURA | استوديو تسريع الأعمال",
+    description: "نساعد الشركات على تصميم سير العمل، بناء الأدوات، أتمتة المتابعة، وتحويل العمل اليومي إلى نظام واضح قابل للنمو.",
     images: ["/og-image.png"],
   },
 };
@@ -54,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
         className={`${outfit.variable} ${cairo.variable} antialiased`}
         style={{ fontFamily: "var(--font-outfit), var(--font-cairo), sans-serif" }}
