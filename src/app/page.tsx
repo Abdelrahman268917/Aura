@@ -622,6 +622,678 @@ const content = {
   },
 };
 
+const aura2026Content = {
+  en: {
+    nav: {
+      home: 'Home',
+      services: 'Layers',
+      process: 'Method',
+      packages: 'Engagement',
+      why: 'Why AURA',
+      contact: 'Contact',
+      cta: 'Start Now',
+    },
+    loader: {
+      tagline: 'Enterprise Business Acceleration Studio',
+      line1: 'Turn scattered work into intelligent systems.',
+      line2: 'Built for complex operations and leadership visibility.',
+    },
+    hero: {
+      badge: 'AURA · Enterprise Business Acceleration Studio',
+      title1: 'Enterprise-grade',
+      title2: 'acceleration',
+      title3: 'for companies that',
+      title4: 'outgrew their systems.',
+      subheadline: 'We diagnose operations, redesign workflows, build internal tools, connect AI agents, and turn scattered work into measurable operating systems.',
+      description: 'When a company grows faster than its systems, time disappears between messages, spreadsheets, and invisible decisions. AURA builds an intelligent operating layer that makes work clearer, follow-up faster, and decisions more data-informed.',
+      cta1: 'Start Diagnosis',
+      cta2: 'Explore Service Layers',
+      trust: 'Designed for larger companies, business groups, and leadership teams that need real operational visibility.',
+    },
+    why: {
+      badge: 'The Operating Problem',
+      title: 'When the company grows faster than the system',
+      subtitle: 'More teams, projects, subsidiaries, and data make manual follow-up expensive, fragile, and hard to scale.',
+      problems: [
+        { icon: 'scatter', title: 'Scattered Operations', desc: 'Messages, sheets, tasks, and decisions live in disconnected places with no single operating layer.' },
+        { icon: 'delay', title: 'Slow Visibility', desc: 'Leadership discovers risk late because status, ownership, and blockers are not visible early enough.' },
+        { icon: 'waste', title: 'Disconnected Tools', desc: 'Dashboards, automations, AI, and marketing do not create value when they are separated from real workflow.' },
+        { icon: 'loss', title: 'Unclear Decisions', desc: 'Teams move with partial context, duplicated effort, and weak links between data and execution.' },
+      ],
+      solution: {
+        title: 'What AURA builds differently',
+        desc: 'AURA does not sell isolated tools. We diagnose how the company works, redesign the workflow, build internal tools, connect AI agents, improve growth systems, and create a measurable operating layer for leadership.',
+      },
+    },
+    enterprise: {
+      badge: 'Enterprise Ready',
+      title: 'Designed for companies that outgrew their systems',
+      subtitle: 'AURA is built for larger companies, business groups, real estate and development teams, service operations, and organizations with complex daily follow-up.',
+      cards: [
+        { icon: 'layers', title: 'Multi-company Groups', text: 'When each company works differently and leadership lacks one view of priorities, we rebuild a shared operating layer that shows the full picture.' },
+        { icon: 'workflow', title: 'Large Operations Teams', text: 'We turn projects, follow-ups, risks, and decisions into clear stages and dashboards so delays appear before they become crises.' },
+        { icon: 'chart', title: 'Data-led Management', text: 'We connect scattered information into one system that helps leaders make faster and more accurate decisions.' },
+        { icon: 'bot', title: 'AI Inside Operations', text: 'AI agents become part of the workflow with human review points, not separate experiments outside the real system.' },
+      ],
+      map: ['Diagnose', 'Workflow', 'Tools', 'AI Agents', 'Decision Layer'],
+    },
+    services: {
+      badge: 'Service Layers',
+      title: 'Ten Integrated Service Layers',
+      subtitle: 'AURA can build a complete operating system or select the highest-impact layers after diagnosis. Each card stays intentionally short; details are scoped with the team.',
+      layers: [
+        {
+          num: '01',
+          title: 'Work System Diagnosis',
+          problem: 'A deep review that reveals where resources are wasted, which problems matter most, and where intervention should begin.',
+          solution: 'AURA maps the current operating reality, clarifies bottlenecks, and turns uncertainty into a prioritized leadership brief.',
+          kpis: ['Operations problem map', 'Financial or operational impact view', 'Clear implementation priorities', 'Executive summary for leadership'],
+          impact: 'Target outcome: sharper priorities and a practical starting point.',
+          icon: 'search',
+          isNew: false,
+        },
+        {
+          num: '02',
+          title: 'Workflow & Process Design',
+          problem: 'Invisible work becomes delays, unclear ownership, and repeated follow-up across teams.',
+          solution: 'We translate daily work into stages, responsibilities, review points, and a weekly operating rhythm.',
+          kpis: ['Workflow map', 'Stages and responsibilities', 'Follow-up templates', 'Weekly review system'],
+          impact: 'Target outcome: clearer handoffs and fewer hidden blockers.',
+          icon: 'flow',
+          isNew: false,
+        },
+        {
+          num: '03',
+          title: 'Internal Tools & Software',
+          problem: 'Generic tools do not match how the team actually works, so people return to sheets and manual reminders.',
+          solution: 'We build dashboards, forms, trackers, and lightweight databases around the team’s real usage patterns.',
+          kpis: ['Dashboards', 'Smart forms', 'Internal databases', 'Custom tracking tools'],
+          impact: 'Target outcome: tools that reduce admin friction instead of adding it.',
+          icon: 'build',
+          isNew: false,
+        },
+        {
+          num: '04',
+          title: 'AI Automation & Agents',
+          problem: 'Repetitive reports, reminders, analysis, and handoffs consume senior team time.',
+          solution: 'We connect repeatable work to AI agents and automations with human review where quality or approval matters.',
+          kpis: ['Follow-up agents', 'Automated reports', 'Smart alerts', 'Human review points'],
+          impact: 'Target outcome: less manual coordination and better operational rhythm.',
+          icon: 'bot',
+          isNew: false,
+        },
+        {
+          num: '05',
+          title: 'Growth & Marketing Strategy',
+          problem: 'Content, campaigns, competitors, and lead follow-up often operate separately from the company system.',
+          solution: 'We build a growth engine that connects content, campaigns, competitor learning, and opportunity tracking.',
+          kpis: ['Competitor analysis', 'Content ideas', 'Publishing calendar', 'Opportunity tracking system'],
+          impact: 'Target outcome: marketing connected to follow-up and sales decisions.',
+          icon: 'trend',
+          isNew: false,
+        },
+        {
+          num: '06',
+          title: 'Project & Business Structuring',
+          problem: 'New units or offers launch without a clear promise, customer journey, delivery model, or launch plan.',
+          solution: 'We structure the offer, client path, delivery model, and launch plan so the project can move with less ambiguity.',
+          kpis: ['Clear offer', 'Customer journey', 'Delivery model', 'Launch and first-revenue plan'],
+          impact: 'Target outcome: a clearer path from idea to market.',
+          icon: 'rocket',
+          isNew: false,
+        },
+        {
+          num: '07',
+          title: 'Live Growth Strategies',
+          problem: 'Growth plans become outdated when market data, competitors, and campaign signals change.',
+          solution: 'We build a live strategy layer that monitors signals, suggests campaign directions, and keeps human approval before publishing.',
+          kpis: ['Continuous data review', 'Campaign suggestions', 'Human approval workflow', 'Live strategy updates'],
+          impact: 'Potential impact is estimated after diagnosis and depends on data quality and speed of execution.',
+          icon: 'sparkle',
+          isNew: true,
+        },
+        {
+          num: '08',
+          title: 'Company Digital Twin',
+          problem: 'Leadership decisions carry risk when scenarios are not compared before changes are made.',
+          solution: 'We design a lightweight virtual model of the company to compare operational, marketing, or structural decisions before execution.',
+          kpis: ['Decision simulation', 'Scenario comparison', 'Operational or financial impact estimate', 'Decision refinement before risk'],
+          impact: 'Potential impact is scoped after diagnosis; results vary by data quality and model depth.',
+          icon: 'chart',
+          isNew: true,
+        },
+        {
+          num: '09',
+          title: 'Hyper-personalized Real Estate Marketing',
+          problem: 'Real estate buyers receive the same generic message even when intent, budget, and project fit differ.',
+          solution: 'We can connect buyer data, campaigns, dynamic content, interactive showcases, and campaign-to-sales follow-up. 3D or VR-ready concepts are scoped only when needed.',
+          kpis: ['Personalized property content', 'Interactive showcases', 'Buyer-type customization', 'Campaign-to-sales connection'],
+          impact: 'Advanced proof of capability; scope is defined after diagnosis, especially for 3D or VR-ready experiences.',
+          icon: 'layers',
+          isNew: true,
+        },
+        {
+          num: '10',
+          title: 'Autonomous Smart Agent System',
+          problem: 'Research, reports, sales support, and market analysis often require constant manual attention.',
+          solution: 'We design a digital team of specialized agents for research, reporting, sales support, and market analysis under human supervision.',
+          kpis: ['Sales agent', 'Reporting agent', 'Research agent', 'Human supervision', 'Continuous follow-up system'],
+          impact: 'Potential impact depends on scope, governance, data access, and team adoption.',
+          icon: 'bot',
+          isNew: true,
+        },
+      ],
+      who: [
+        { icon: 'layers', title: 'Large Companies', desc: 'Complex operations and many moving parts' },
+        { icon: 'settings', title: 'Business Groups', desc: 'Shared visibility across units' },
+        { icon: 'rocket', title: 'Real Estate & Development', desc: 'Sales, campaigns, projects, and follow-up' },
+        { icon: 'book', title: 'Service Operations', desc: 'Teams, delivery, data, and daily tracking' },
+      ],
+    },
+    realEstate: {
+      badge: 'Proof of Capability',
+      title: 'Applied Example: Real Estate & Interactive Experiences',
+      subtitle: 'Real estate shows how AURA connects operations, marketing, data, and interactive environments inside one operating path.',
+      copy: 'For real estate companies, one ad is rarely enough for every buyer. AURA can build a system that connects buyer data, campaigns, content, landing pages, interactive showcases, and sales follow-up. When needed, 3D environments or VR-ready concepts can help prospects explore a project more deeply before a buying decision.',
+      points: ['Personalized real estate marketing', 'AI-assisted content support', 'Interactive property showcases', '3D / VR-ready environments when scoped', 'Sales enablement experiences', 'Lead tracking', 'Campaign-to-sales connection'],
+      cta: 'Discuss a similar case for your company',
+    },
+    process: {
+      badge: 'AURA Method',
+      title: 'AURA Methodology',
+      subtitle: 'Every engagement moves through clear stages, and every stage must produce something usable.',
+      steps: [
+        { num: '01', title: 'Diagnosis', desc: 'We understand the company, teams, tools, data, and highest-impact operating problems.' },
+        { num: '02', title: 'System Design', desc: 'We map workflow, responsibilities, follow-up points, and the layers needed for the first phase.' },
+        { num: '03', title: 'Build the Layers', desc: 'We build dashboards, tools, automations, agents, or growth layers depending on scope.' },
+        { num: '04', title: 'Review & Training', desc: 'We test the system with the team, document usage, and refine what needs adjustment.' },
+        { num: '05', title: 'Operate & Improve', desc: 'We monitor results, update priorities, and add monthly improvements when the partnership continues.' },
+      ],
+      questions: {
+        title: 'Before any solution is delivered, AURA asks:',
+        items: [
+          'What exact problem does this solve?',
+          'Will the team actually use it?',
+          'How do we know it creates value?',
+        ],
+      },
+    },
+    packages: {
+      badge: 'Engagement Models',
+      title: 'Enterprise-Friendly Engagement Models',
+      subtitle: 'No fixed pricing and no generic package promise. Scope and pricing are defined after diagnosis.',
+      sprint: {
+        name: 'Focused Sprint',
+        subtitle: 'One deep layer for one clear problem',
+        badge: '21-30 Days',
+        scope: 'Scope and pricing after diagnosis',
+        features: [
+          'A focused intervention around one operational problem',
+          'Diagnosis of the selected layer',
+          'Workflow or tool design for the priority issue',
+          'A usable output, not just recommendations',
+          'Best for testing AURA or solving a defined bottleneck',
+        ],
+        cta: 'Start Diagnosis',
+      },
+      full: {
+        name: 'Full Acceleration System',
+        subtitle: 'A multi-layer transformation over 3-6 months',
+        badge: 'Most Complete',
+        scope: 'Custom enterprise scope',
+        features: [
+          'Several integrated service layers',
+          'Diagnosis, workflow design, tools, and automation',
+          'Leadership visibility and operating dashboards',
+          'Team review, training, and documentation',
+          'Roadmap for future expansion and governance',
+        ],
+        cta: 'Start Diagnosis',
+      },
+      managed: {
+        name: 'Continuous Improvement Partner',
+        subtitle: 'Monthly ownership after launch',
+        badge: 'Monthly',
+        scope: 'Monthly custom scope',
+        description: 'Ongoing improvement for the operating system after launch: reports, updates, automations, refinements, and monthly priorities.',
+        features: ['Monthly system review', 'Priority roadmap', 'Workflow updates', 'Automation refinement', 'Reporting improvements', 'New requests and enhancements'],
+        cta: 'Discuss Monthly Support',
+      },
+      guide: {
+        title: 'Best Fit',
+        items: [
+          { if: 'If you need to test the studio or solve one clear operational point', then: 'Focused Sprint' },
+          { if: 'If leadership wants a complete operating layer across teams and data', then: 'Full Acceleration System' },
+          { if: 'If the system already exists but needs monthly ownership and improvement', then: 'Continuous Improvement Partner' },
+          { if: 'If scope is unclear', then: 'Start with diagnosis, then define the right layer' },
+        ],
+      },
+      scopeNote: 'Scope and pricing are determined after diagnosis because results depend on company size, data quality, operating complexity, and team adoption.',
+    },
+    differentiators: {
+      badge: 'Why AURA',
+      title: 'Why AURA?',
+      items: [
+        { icon: 'layers', title: 'We see the company as one system', desc: 'We do not separate marketing from operations or tools from decisions. We build the layer that connects them.', quote: 'One operating view is more useful than another disconnected tool.' },
+        { icon: 'target', title: 'We start with the problem, not the technology', desc: 'AI and dashboards are only useful when each layer solves a real operational problem.', quote: 'The question is not “can we automate it?” but “should this improve the work?”' },
+        { icon: 'settings', title: 'Built for complex companies', desc: 'The more teams, projects, and data you have, the more valuable a clear operating system becomes.', quote: 'Complexity needs structure before speed.' },
+        { icon: 'bot', title: 'AI under human supervision', desc: 'Agents and automations work inside review points that protect quality, governance, and decisions.', quote: 'Automation supports leadership; it does not replace judgment.' },
+        { icon: 'refresh', title: 'Designed to scale', desc: 'We can start with one sprint or layer, then expand the system based on priorities and results.', quote: 'The best system can grow without losing clarity.' },
+      ],
+    },
+    examples: {
+      badge: 'Operating Examples',
+      title: 'How an AURA System Can Look',
+      items: [
+        {
+          icon: 'layers',
+          title: 'Business Group',
+          challenge: 'Subsidiaries, units, priorities, reports, and follow-up all move differently.',
+          result: ['Shared operating view', 'Priority tracking across units', 'Leadership-ready reports', 'Clear escalation path'],
+        },
+        {
+          icon: 'trend',
+          title: 'Real Estate Developer',
+          challenge: 'Projects, buyer data, campaigns, inventory, sales follow-up, and content are disconnected.',
+          result: ['Campaign-to-sales tracking', 'Buyer segmentation', 'Interactive showcase layer when scoped', 'Clear sales enablement path'],
+        },
+        {
+          icon: 'bot',
+          title: 'AI Operations Layer',
+          challenge: 'Reports, analysis, reminders, and research depend on manual follow-up.',
+          result: ['Specialized AI agents', 'Human approval points', 'Automated reporting rhythm', 'Continuous improvement queue'],
+        },
+        {
+          icon: 'chart',
+          title: 'Decision Intelligence',
+          challenge: 'Leadership receives status late and decisions are made without a shared data picture.',
+          result: ['Unified operating dashboard', 'Scenario comparison', 'Risk visibility', 'Better weekly review structure'],
+        },
+      ],
+    },
+    contact: {
+      badge: 'Start Now',
+      title: 'Start with a work-system diagnosis',
+      subtitle: 'Share your company type, number of teams or units, and the biggest point of friction today. We will suggest the most suitable first intervention layer.',
+      email: 'amirelshazly66@gmail.com',
+      phone: '+20 102 924 0066',
+      location: 'Egypt / Remote',
+      details: {
+        email: 'Email',
+        whatsapp: 'WhatsApp',
+        location: 'Location',
+      },
+      actions: [
+        {
+          label: 'A',
+          icon: 'target',
+          title: 'Start Diagnosis',
+          text: 'Tell us where operations feel slow, scattered, invisible, or hard to control.',
+          cta: 'Start on WhatsApp',
+          type: 'diagnosis',
+        },
+        {
+          label: 'B',
+          icon: 'book',
+          title: 'Send a Company Brief',
+          text: 'Send a short brief about your company, team structure, systems, and current friction.',
+          cta: 'Send Email Brief',
+          type: 'brief',
+        },
+        {
+          label: 'C',
+          icon: 'refresh',
+          title: 'Discuss Your Company Case',
+          text: 'For groups, real estate teams, or complex operations that need a tailored operating layer.',
+          cta: 'Discuss Monthly Support',
+          type: 'monthly',
+        },
+      ],
+    },
+    footer: {
+      tagline: 'Enterprise Business Acceleration Studio',
+      rights: 'All rights reserved.',
+      built: 'Built with precision.',
+    },
+  },
+  ar: {
+    nav: {
+      home: 'الرئيسية',
+      services: 'الطبقات',
+      process: 'المنهجية',
+      packages: 'نماذج التعاون',
+      why: 'لماذا AURA',
+      contact: 'تواصل',
+      cta: 'ابدأ الآن',
+    },
+    loader: {
+      tagline: 'استوديو تسريع الأعمال للمؤسسات',
+      line1: 'نحوّل العمل المتفرق إلى منظومات ذكية.',
+      line2: 'مصمم للشركات المعقدة ورؤية القيادة.',
+    },
+    hero: {
+      badge: 'AURA · استوديو تسريع الأعمال للمؤسسات',
+      title1: 'حوّل شركتك',
+      title2: 'إلى منظومة',
+      title3: 'ذكية قابلة',
+      title4: 'للنمو.',
+      subheadline: 'نساعد الشركات والمجموعات على تشخيص التشغيل، تصميم سير العمل، بناء الأدوات، وربط الذكاء الاصطناعي داخل نظام واحد قابل للمتابعة والتطوير.',
+      description: 'عندما تكبر الشركة أسرع من أنظمتها، يبدأ الوقت في الضياع بين الرسائل والجداول والقرارات غير المرئية. AURA تبني طبقة تشغيل ذكية تجعل العمل أوضح، المتابعة أسرع، والقرارات مبنية على بيانات.',
+      cta1: 'ابدأ التشخيص',
+      cta2: 'استعرض طبقات الخدمة',
+      trust: 'مصمم للشركات الكبيرة، المجموعات، وفرق الإدارة التي تحتاج رؤية تشغيلية حقيقية.',
+    },
+    why: {
+      badge: 'مشكلة التشغيل',
+      title: 'حين تكبر الشركة أسرع من أنظمتها',
+      subtitle: 'كلما زاد عدد الفرق والمشاريع والشركات التابعة، أصبحت المتابعة اليدوية أكثر تكلفة وخطورة.',
+      problems: [
+        { icon: 'scatter', title: 'تشغيل متفرق', desc: 'الرسائل والجداول والمهام والقرارات موزعة بين أماكن متعددة بلا طبقة تشغيل موحدة.' },
+        { icon: 'delay', title: 'رؤية متأخرة', desc: 'تكتشف الإدارة المخاطر متأخرًا لأن الحالة والمسؤوليات ونقاط التعطيل لا تظهر مبكرًا.' },
+        { icon: 'waste', title: 'أدوات غير مترابطة', desc: 'الداشبورد أو الأتمتة أو الذكاء الاصطناعي لا تصنع قيمة إذا كانت منفصلة عن سير العمل الحقيقي.' },
+        { icon: 'loss', title: 'قرارات غير واضحة', desc: 'تتحرك الفرق بسياق ناقص وجهد مكرر وضعف في الربط بين البيانات والتنفيذ.' },
+      ],
+      solution: {
+        title: 'كيف تبني AURA القيمة؟',
+        desc: 'AURA لا تبيع أدوات منفصلة. نبدأ بتشخيص طريقة العمل، ثم نصمم سير التشغيل، ونبني الأدوات، ونربط الذكاء الاصطناعي، ونحوّل البيانات إلى قرارات ومتابعة وتنفيذ.',
+      },
+    },
+    enterprise: {
+      badge: 'مصمم للمؤسسات',
+      title: 'مصمم للشركات التي كبرت أسرع من أنظمتها',
+      subtitle: 'AURA مناسب للشركات الكبيرة، المجموعات متعددة الشركات، شركات العقارات والتطوير، وفرق التشغيل التي لديها متابعة يومية معقدة.',
+      cards: [
+        { icon: 'layers', title: 'مجموعات متعددة الشركات', text: 'عندما تعمل كل شركة بطريقة مختلفة ولا توجد رؤية موحدة للأولويات، نعيد بناء منظومة تشغيل مشتركة تساعد الإدارة على رؤية الصورة الكاملة.' },
+        { icon: 'workflow', title: 'فرق تشغيل ومشاريع كبيرة', text: 'نحوّل المشاريع والمتابعات والقرارات إلى مراحل واضحة ولوحات متابعة تجعل التأخير والمخاطر ظاهرة قبل أن تتحول إلى أزمة.' },
+        { icon: 'chart', title: 'إدارة تعتمد على البيانات', text: 'نربط المعلومات المتفرقة داخل نظام واحد يساعد القيادة على اتخاذ قرارات أسرع وأدق.' },
+        { icon: 'bot', title: 'ذكاء اصطناعي داخل التشغيل', text: 'نستخدم الذكاء الاصطناعي كجزء من سير العمل، وليس كأداة منفصلة خارج النظام، مع نقاط مراجعة بشرية.' },
+      ],
+      map: ['تشخيص', 'سير العمل', 'الأدوات', 'وكلاء AI', 'طبقة القرار'],
+    },
+    services: {
+      badge: 'طبقات الخدمة',
+      title: 'طبقات الخدمة',
+      subtitle: 'عشر طبقات متكاملة يمكن تنفيذها كمنظومة كاملة، أو اختيار الطبقات الأكثر تأثيرًا حسب احتياج الشركة بعد التشخيص.',
+      layers: [
+        {
+          num: '01',
+          title: 'تشخيص نظام العمل',
+          problem: 'فحص عميق يكشف أين تضيع الموارد، ما المشكلات الأعلى تأثيرًا، وما أولويات التدخل.',
+          solution: 'نرسم الواقع التشغيلي الحالي، نحدد نقاط التعطيل، ونحوّل الغموض إلى ملخص تنفيذي قابل للتنفيذ.',
+          kpis: ['خريطة مشكلات التشغيل', 'تحليل الأثر المالي أو التشغيلي', 'أولويات تنفيذ واضحة', 'عرض تنفيذي مختصر للقيادة'],
+          impact: 'الأثر المستهدف: أولويات أوضح ونقطة بداية عملية.',
+          icon: 'search',
+          isNew: false,
+        },
+        {
+          num: '02',
+          title: 'تصميم سير العمل والعمليات',
+          problem: 'العمل غير المرئي يتحول إلى تأخير ومسؤوليات غير واضحة ومتابعة متكررة.',
+          solution: 'نحوّل العمل اليومي إلى مراحل ومسؤوليات ونقاط مراجعة وإيقاع متابعة أسبوعي واضح.',
+          kpis: ['خريطة سير العمل', 'مراحل ومسؤوليات', 'قوالب متابعة', 'نظام مراجعة أسبوعي'],
+          impact: 'الأثر المستهدف: تسليم أوضح وفجوات أقل بين الفرق.',
+          icon: 'flow',
+          isNew: false,
+        },
+        {
+          num: '03',
+          title: 'الأدوات والبرمجيات الداخلية',
+          problem: 'الأدوات العامة لا تناسب طريقة عمل الفريق، فيعود الناس إلى الجداول والتذكير اليدوي.',
+          solution: 'نبني لوحات ونماذج ومتتبعات وقواعد بيانات خفيفة حول استخدام الفريق الفعلي.',
+          kpis: ['لوحات تحكم', 'نماذج ذكية', 'قواعد بيانات داخلية', 'أدوات متابعة مخصصة'],
+          impact: 'الأثر المستهدف: أدوات تقلل العبء الإداري بدل أن تضيفه.',
+          icon: 'build',
+          isNew: false,
+        },
+        {
+          num: '04',
+          title: 'أتمتة الذكاء الاصطناعي والوكلاء',
+          problem: 'التقارير والتذكير والتحليل والتسليمات المتكررة تستهلك وقت الفريق.',
+          solution: 'نربط المهام المتكررة بوكلاء وأتمتة مع مراجعة بشرية عندما تكون الجودة أو الموافقة مهمة.',
+          kpis: ['وكلاء متابعة', 'تقارير آلية', 'تنبيهات ذكية', 'نقاط مراجعة بشرية'],
+          impact: 'الأثر المستهدف: تنسيق يدوي أقل وإيقاع تشغيل أفضل.',
+          icon: 'bot',
+          isNew: false,
+        },
+        {
+          num: '05',
+          title: 'استراتيجية النمو والتسويق',
+          problem: 'المحتوى والحملات والمنافسون ومتابعة العملاء يعملون غالبًا خارج نظام الشركة.',
+          solution: 'نبني محرك نمو يربط المحتوى والحملات وتحليل المنافسين وتتبع الفرص داخل نظام واحد.',
+          kpis: ['تحليل منافسين', 'أفكار محتوى', 'تقويم نشر', 'نظام تتبع فرص'],
+          impact: 'الأثر المستهدف: تسويق مرتبط بالمتابعة وقرارات البيع.',
+          icon: 'trend',
+          isNew: false,
+        },
+        {
+          num: '06',
+          title: 'هيكلة المشاريع والأعمال',
+          problem: 'الوحدات أو العروض الجديدة تبدأ أحيانًا بلا وعد واضح أو رحلة عميل أو نموذج تسليم.',
+          solution: 'نهيكل العرض ورحلة العميل ونموذج التسليم وخطة الإطلاق حتى يتحرك المشروع بغموض أقل.',
+          kpis: ['عرض واضح', 'رحلة عميل', 'نموذج تسليم', 'خطة إطلاق وأول إيراد'],
+          impact: 'الأثر المستهدف: طريق أوضح من الفكرة إلى السوق.',
+          icon: 'rocket',
+          isNew: false,
+        },
+        {
+          num: '07',
+          title: 'استراتيجيات النمو الحية',
+          problem: 'خطط النمو تصبح قديمة عندما تتغير بيانات السوق والمنافسين وإشارات الحملات.',
+          solution: 'نبني طبقة استراتيجية حية تراقب الإشارات وتقترح اتجاهات حملات مع مراجعة بشرية قبل النشر.',
+          kpis: ['تحليل بيانات مستمر', 'اقتراح حملات', 'مراجعة وموافقة بشرية', 'تحديثات استراتيجية حية'],
+          impact: 'يتم تقدير الأثر بعد التشخيص، وتختلف النتائج حسب جودة البيانات وسرعة التطبيق.',
+          icon: 'sparkle',
+          isNew: true,
+        },
+        {
+          num: '08',
+          title: 'النسخة الافتراضية للشركة',
+          problem: 'قرارات القيادة تحمل مخاطرة عندما لا تتم مقارنة السيناريوهات قبل التنفيذ.',
+          solution: 'نصمم نموذجًا افتراضيًا خفيفًا للشركة لاختبار القرارات التشغيلية أو التسويقية أو الهيكلية قبل المخاطرة.',
+          kpis: ['محاكاة قرارات', 'مقارنة سيناريوهات', 'توقع أثر تشغيلي أو مالي', 'تحسين القرار قبل المخاطرة'],
+          impact: 'يتم تقدير الأثر بعد التشخيص حسب جودة البيانات وعمق النموذج.',
+          icon: 'chart',
+          isNew: true,
+        },
+        {
+          num: '09',
+          title: 'التسويق العقاري مفرط التخصيص',
+          problem: 'المشتري العقاري لا يحتاج نفس الرسالة دائمًا؛ النية والميزانية وملاءمة المشروع تختلف.',
+          solution: 'نربط بيانات العملاء والحملات والمحتوى الديناميكي وتجارب العرض التفاعلية ومسار البيع. مفاهيم 3D أو VR-ready تُحدد فقط عند الحاجة.',
+          kpis: ['محتوى عقاري مخصص', 'صفحات أو تجارب عرض تفاعلية', 'تخصيص حسب نوع المشتري', 'ربط الحملات بالمتابعة والمبيعات'],
+          impact: 'دليل متقدم على القدرة؛ يتم تحديد النطاق بعد التشخيص خصوصًا لتجارب 3D أو VR-ready.',
+          icon: 'layers',
+          isNew: true,
+        },
+        {
+          num: '10',
+          title: 'نظام الوكلاء الأذكياء المستقلين',
+          problem: 'البحث والتقارير ودعم المبيعات وتحليل السوق يحتاجون متابعة يدوية مستمرة.',
+          solution: 'نصمم فريقًا رقميًا من وكلاء متخصصين للبحث والتقارير ودعم المبيعات وتحليل السوق مع إشراف بشري.',
+          kpis: ['وكيل مبيعات', 'وكيل تقارير', 'وكيل بحث', 'إشراف بشري', 'نظام متابعة مستمر'],
+          impact: 'الأثر المحتمل يعتمد على النطاق والحوكمة والوصول للبيانات وتبني الفريق.',
+          icon: 'bot',
+          isNew: true,
+        },
+      ],
+      who: [
+        { icon: 'layers', title: 'الشركات الكبيرة', desc: 'تشغيل معقد وأجزاء كثيرة متحركة' },
+        { icon: 'settings', title: 'المجموعات', desc: 'رؤية مشتركة بين الوحدات' },
+        { icon: 'rocket', title: 'العقارات والتطوير', desc: 'مبيعات وحملات ومشاريع ومتابعة' },
+        { icon: 'book', title: 'شركات الخدمات والتشغيل', desc: 'فرق وتسليم وبيانات وتتبع يومي' },
+      ],
+    },
+    realEstate: {
+      badge: 'دليل تطبيقي',
+      title: 'دليل تطبيقي: العقارات والتجارب التفاعلية',
+      subtitle: 'القطاع العقاري يوضح قوة AURA في الدمج بين التشغيل، التسويق، البيانات، والبيئات التفاعلية.',
+      copy: 'في الشركات العقارية، لا يكفي إعلان واحد لكل المشترين. يمكن لـ AURA بناء نظام يربط بيانات العملاء، الحملات، المحتوى، صفحات العرض، والتجارب التفاعلية في مسار واحد. وعند الحاجة، يمكن تطوير بيئات ثلاثية الأبعاد أو تجارب VR-ready تساعد العميل على استكشاف المشروع بشكل أعمق قبل قرار الشراء.',
+      points: ['تسويق عقاري مخصص', 'دعم محتوى بالذكاء الاصطناعي', 'تجارب عرض تفاعلية', 'بيئات 3D / VR-ready عند الحاجة', 'تجارب تمكين المبيعات', 'تتبع العملاء المحتملين', 'ربط الحملات بالمبيعات'],
+      cta: 'ناقش حالة مشابهة لشركتك',
+    },
+    process: {
+      badge: 'منهجية AURA',
+      title: 'منهجية AURA',
+      subtitle: 'كل تعامل يمر بمراحل واضحة، وكل مرحلة يجب أن تنتج مخرجًا قابلًا للاستخدام.',
+      steps: [
+        { num: '01', title: 'التشخيص', desc: 'نفهم الشركة، فرق العمل، الأدوات، البيانات، والمشكلات الأعلى تأثيرًا.' },
+        { num: '02', title: 'تصميم المنظومة', desc: 'نرسم سير العمل، المسؤوليات، نقاط المتابعة، والطبقات المطلوبة للمرحلة الأولى.' },
+        { num: '03', title: 'بناء الأدوات والطبقات', desc: 'نبني الداشبورد، الأدوات، الأتمتة، الوكلاء، أو طبقة النمو حسب النطاق.' },
+        { num: '04', title: 'المراجعة والتدريب', desc: 'نختبر النظام مع الفريق ونوثق طريقة الاستخدام ونحسّن ما يحتاج تعديلًا.' },
+        { num: '05', title: 'التشغيل والتحسين', desc: 'نراقب النتائج، نحدث الأولويات، ونضيف تحسينات شهرية عند استمرار التعاون.' },
+      ],
+      questions: {
+        title: 'قبل تسليم أي حل، تسأل AURA:',
+        items: [
+          'ما المشكلة المحددة التي يحلها هذا؟',
+          'هل سيستخدمه الفريق فعليًا؟',
+          'كيف نعرف أنه يخلق قيمة؟',
+        ],
+      },
+    },
+    packages: {
+      badge: 'نماذج التعاون',
+      title: 'نماذج التعاون',
+      subtitle: 'لا توجد أسعار ثابتة أو وعود عامة. يتم تحديد النطاق والتكلفة بعد التشخيص.',
+      sprint: {
+        name: 'السبرنت المركزي',
+        subtitle: 'طبقة واحدة بتركيز عميق لمعالجة مشكلة محددة',
+        badge: '21-30 يوم',
+        scope: 'النطاق والتكلفة بعد التشخيص',
+        features: [
+          'تدخل مركز حول مشكلة تشغيلية واضحة',
+          'تشخيص الطبقة المختارة',
+          'تصميم سير العمل أو الأداة المناسبة',
+          'مخرج قابل للاستخدام وليس توصيات فقط',
+          'مناسب لاختبار التعاون أو حل نقطة تعطيل محددة',
+        ],
+        cta: 'ابدأ التشخيص',
+      },
+      full: {
+        name: 'نظام التسريع الكامل',
+        subtitle: 'تحويل متعدد الطبقات خلال 3-6 شهور',
+        badge: 'الأكثر تكاملًا',
+        scope: 'نطاق مؤسسي مخصص',
+        features: [
+          'تنفيذ عدة طبقات متكاملة',
+          'تشخيص وتصميم سير العمل والأدوات والأتمتة',
+          'رؤية تشغيلية ولوحات متابعة للقيادة',
+          'مراجعة وتدريب وتوثيق للفريق',
+          'خارطة تطوير وحوكمة للمراحل التالية',
+        ],
+        cta: 'ابدأ التشخيص',
+      },
+      managed: {
+        name: 'شريك التحسين المستمر',
+        subtitle: 'متابعة شهرية بعد الإطلاق',
+        badge: 'شهري',
+        scope: 'نطاق شهري مخصص',
+        description: 'متابعة وتحسين مستمر للمنظومة بعد الإطلاق: تقارير، تحديثات، أتمتة، تحسينات، وأولويات شهرية.',
+        features: ['مراجعة شهرية للنظام', 'خارطة أولويات', 'تحديث سير العمل', 'تحسين الأتمتة', 'تطوير التقارير', 'طلبات وتحسينات جديدة'],
+        cta: 'ناقش المتابعة الشهرية',
+      },
+      guide: {
+        title: 'ما النموذج الأنسب؟',
+        items: [
+          { if: 'إذا أردت اختبار الاستوديو أو حل نقطة تشغيلية واضحة', then: 'السبرنت المركزي' },
+          { if: 'إذا احتاجت الإدارة طبقة تشغيل كاملة بين الفرق والبيانات', then: 'نظام التسريع الكامل' },
+          { if: 'إذا كان النظام قائمًا ويحتاج متابعة وتحسين شهري', then: 'شريك التحسين المستمر' },
+          { if: 'إذا كان النطاق غير واضح', then: 'ابدأ بالتشخيص ثم نحدد الطبقة المناسبة' },
+        ],
+      },
+      scopeNote: 'يُحدد النطاق والتكلفة بعد التشخيص لأن النتائج تعتمد على حجم الشركة، جودة البيانات، تعقيد التشغيل، والتزام الفريق بالتطبيق.',
+    },
+    differentiators: {
+      badge: 'لماذا AURA',
+      title: 'لماذا AURA؟',
+      items: [
+        { icon: 'layers', title: 'نرى الشركة كنظام كامل', desc: 'لا نفصل التسويق عن التشغيل، ولا الأدوات عن القرارات. نبني طبقة تربط كل ذلك.', quote: 'رؤية تشغيل واحدة أفضل من أداة إضافية منفصلة.' },
+        { icon: 'target', title: 'نبدأ بالمشكلة لا بالتقنية', desc: 'لا نضيف AI أو dashboards لمجرد الإبهار. كل طبقة يجب أن تحل مشكلة تشغيلية واضحة.', quote: 'السؤال ليس: هل يمكن أتمتته؟ بل: هل سيحسن العمل؟' },
+        { icon: 'settings', title: 'مناسب للشركات المعقدة', desc: 'كلما زاد عدد الفرق والمشاريع والبيانات، زادت قيمة وجود نظام واضح.', quote: 'التعقيد يحتاج هيكلة قبل السرعة.' },
+        { icon: 'bot', title: 'ذكاء اصطناعي تحت إشراف بشري', desc: 'الوكلاء والأتمتة يعملون داخل نقاط مراجعة تحافظ على الجودة والقرار.', quote: 'الأتمتة تدعم القيادة ولا تستبدل الحكم البشري.' },
+        { icon: 'refresh', title: 'قابل للتوسع', desc: 'نبدأ بطبقة أو سبرنت، ثم نوسع المنظومة حسب النتائج والأولوية.', quote: 'أفضل نظام يكبر دون أن يفقد وضوحه.' },
+      ],
+    },
+    examples: {
+      badge: 'أمثلة تشغيلية',
+      title: 'كيف يمكن أن يبدو نظام AURA؟',
+      items: [
+        {
+          icon: 'layers',
+          title: 'مجموعة شركات',
+          challenge: 'شركات تابعة، وحدات، أولويات، تقارير، ومتابعة تتحرك بطرق مختلفة.',
+          result: ['رؤية تشغيل موحدة', 'تتبع أولويات بين الوحدات', 'تقارير مناسبة للقيادة', 'مسار تصعيد واضح'],
+        },
+        {
+          icon: 'trend',
+          title: 'شركة تطوير عقاري',
+          challenge: 'المشاريع وبيانات المشترين والحملات والمخزون والمتابعة والمحتوى غير مترابطة.',
+          result: ['ربط الحملات بالمبيعات', 'تقسيم المشترين', 'طبقة عرض تفاعلية عند الحاجة', 'مسار واضح لتمكين المبيعات'],
+        },
+        {
+          icon: 'bot',
+          title: 'طبقة تشغيل بالذكاء الاصطناعي',
+          challenge: 'التقارير والتحليل والتذكير والبحث تعتمد على متابعة يدوية.',
+          result: ['وكلاء ذكاء اصطناعي متخصصون', 'نقاط موافقة بشرية', 'إيقاع تقارير آلي', 'قائمة تحسين مستمرة'],
+        },
+        {
+          icon: 'chart',
+          title: 'ذكاء القرار',
+          challenge: 'تصل الحالة للإدارة متأخرة، وتُتخذ القرارات بلا صورة بيانات مشتركة.',
+          result: ['داشبورد تشغيل موحد', 'مقارنة سيناريوهات', 'رؤية مبكرة للمخاطر', 'هيكلة أفضل للمراجعة الأسبوعية'],
+        },
+      ],
+    },
+    contact: {
+      badge: 'ابدأ الآن',
+      title: 'ابدأ بتشخيص منظومة العمل',
+      subtitle: 'شاركنا طبيعة شركتك، عدد الفرق أو الوحدات، وأكبر نقطة تعطيل حاليًا. سنقترح أول طبقة تدخل مناسبة.',
+      email: 'amirelshazly66@gmail.com',
+      phone: '+20 102 924 0066',
+      location: 'مصر / عن بُعد',
+      details: {
+        email: 'البريد الإلكتروني',
+        whatsapp: 'واتساب',
+        location: 'الموقع',
+      },
+      actions: [
+        {
+          label: 'A',
+          icon: 'target',
+          title: 'ابدأ التشخيص',
+          text: 'أخبرنا أين يبدو التشغيل بطيئًا، متفرقًا، غير مرئي، أو صعب السيطرة.',
+          cta: 'ابدأ عبر واتساب',
+          type: 'diagnosis',
+        },
+        {
+          label: 'B',
+          icon: 'book',
+          title: 'أرسل نبذة عن الشركة',
+          text: 'شاركنا نبذة عن الشركة، هيكل الفرق، الأنظمة الحالية، ونقطة التعطيل الرئيسية.',
+          cta: 'أرسل بريدًا',
+          type: 'brief',
+        },
+        {
+          label: 'C',
+          icon: 'refresh',
+          title: 'ناقش حالة شركتك',
+          text: 'للمجموعات، شركات العقارات، أو التشغيل المعقد الذي يحتاج طبقة تشغيل مخصصة.',
+          cta: 'ناقش المتابعة',
+          type: 'monthly',
+        },
+      ],
+    },
+    footer: {
+      tagline: 'استوديو تسريع الأعمال للمؤسسات',
+      rights: 'جميع الحقوق محفوظة.',
+      built: 'بُني بدقة.',
+    },
+  },
+} as const;
+
+Object.assign(content.en, aura2026Content.en);
+Object.assign(content.ar, aura2026Content.ar);
+
 const WHATSAPP_NUMBER = '201029240066';
 const CONTACT_EMAIL = 'amirelshazly66@gmail.com';
 const LANGUAGE_STORAGE_KEY = 'aura-language';
@@ -682,6 +1354,44 @@ Thank you.`,
   },
 };
 
+Object.assign(contactMessages.en, {
+  diagnosis: 'Hi AURA team, I want to discuss how AURA can help us turn our company operations into a clearer and more intelligent operating system. I would like to start with an initial diagnosis.',
+  monthly: 'Hi AURA team, I want to discuss continuous improvement support for our operating system, workflows, tools, automations, and AI agents.',
+  briefSubject: 'AURA Company Brief',
+  briefBody: `Hi AURA team,
+
+I would like to share a short brief about our company.
+
+Company name:
+Company type:
+Number of teams / units:
+Current tools or systems:
+Biggest operational friction:
+What we want to improve:
+Website/social link:
+
+Thank you.`,
+});
+
+Object.assign(contactMessages.ar, {
+  diagnosis: 'أهلًا فريق AURA، أريد مناقشة كيف يمكن لـ AURA مساعدتنا في تحويل التشغيل داخل شركتنا إلى منظومة أوضح وأكثر ذكاءً. أود البدء بتشخيص مبدئي.',
+  monthly: 'أهلًا فريق AURA، أريد مناقشة المتابعة والتحسين المستمر لمنظومة العمل داخل شركتنا: سير العمل، الأدوات، الأتمتة، ووكلاء الذكاء الاصطناعي.',
+  briefSubject: 'نبذة عن الشركة - AURA',
+  briefBody: `أهلًا فريق AURA،
+
+أرغب في إرسال نبذة قصيرة عن شركتنا.
+
+اسم الشركة:
+نوع الشركة:
+عدد الفرق أو الوحدات:
+الأدوات أو الأنظمة الحالية:
+أكبر نقطة تعطيل حاليًا:
+ما الذي نريد تحسينه:
+رابط الموقع أو السوشيال:
+
+شكرًا.`,
+});
+
 function getWhatsAppLink(lang: 'en' | 'ar', type: 'diagnosis' | 'monthly' = 'diagnosis') {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(contactMessages[lang][type])}`;
 }
@@ -701,6 +1411,7 @@ function getIcon(name: string, size = 20) {
     loss: <BarChart3 size={size} />,
     search: <Target size={size} />,
     flow: <Workflow size={size} />,
+    workflow: <Workflow size={size} />,
     build: <Settings size={size} />,
     bot: <Bot size={size} />,
     trend: <TrendingUp size={size} />,
@@ -943,7 +1654,7 @@ function Navigation({ lang, setLang, scrolled }: { lang: 'en' | 'ar'; setLang: (
 
 /* ─── Hero Section ────────────────────────────────────── */
 function HeroSection({ lang }: { lang: 'en' | 'ar' }) {
-  const t = content[lang].hero;
+  const t = content[lang].hero as typeof content.en.hero & { trust?: string };
   const isRtl = lang === 'ar';
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
@@ -1034,7 +1745,7 @@ function HeroSection({ lang }: { lang: 'en' | 'ar' }) {
                 {isRtl ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
               </a>
               <a
-                href="#process"
+                href="#services"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-sm tracking-wider uppercase transition-all duration-300 hover:bg-white/5 active:scale-95"
                 style={{ border: '1px solid rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.8)' }}
               >
@@ -1042,6 +1753,19 @@ function HeroSection({ lang }: { lang: 'en' | 'ar' }) {
                 {t.cta2}
               </a>
             </motion.div>
+
+            {t.trust && (
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 3.2 }}
+                className="mt-5 text-xs md:text-sm max-w-xl"
+                style={{ color: 'rgba(255,255,255,0.55)' }}
+                dir={isRtl ? 'rtl' : 'ltr'}
+              >
+                {t.trust}
+              </motion.p>
+            )}
 
           </div>
 
@@ -1086,6 +1810,71 @@ function HeroSection({ lang }: { lang: 'en' | 'ar' }) {
 }
 
 /* ─── Why Section ─────────────────────────────────────── */
+function EnterpriseSection({ lang }: { lang: 'en' | 'ar' }) {
+  const t = aura2026Content[lang].enterprise;
+  const isRtl = lang === 'ar';
+
+  return (
+    <AnimatedSection className="py-16 md:py-20 px-6 relative overflow-hidden" style={{ background: 'transparent' }}>
+      <div className="absolute inset-0 bg-radial-gradient from-purple-900/10 via-transparent to-transparent -z-10" />
+      <div className="max-w-6xl mx-auto">
+        <div className={`grid lg:grid-cols-12 gap-8 lg:gap-10 items-center ${isRtl ? 'lg:text-right' : 'lg:text-left'}`}>
+          <div className="lg:col-span-5 text-center lg:text-start">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-6" style={{ background: 'rgba(139,92,246,0.1)', color: '#A78BFA', border: '1px solid rgba(139,92,246,0.15)' }}>
+              {t.badge}
+            </span>
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-gold-gradient">{t.title}</h2>
+            <p className="text-base md:text-lg leading-relaxed" style={{ color: '#B5AEC4' }} dir={isRtl ? 'rtl' : 'ltr'}>
+              {t.subtitle}
+            </p>
+          </div>
+
+          <div className="lg:col-span-7">
+            <div className="grid sm:grid-cols-2 gap-4 mb-5">
+              {t.cards.map((card, index) => (
+                <motion.article
+                  key={card.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.06 }}
+                  className="p-5 rounded-2xl"
+                  style={{
+                    background: 'rgba(20,9,38,0.45)',
+                    border: '1px solid rgba(139,92,246,0.15)',
+                    backdropFilter: 'blur(10px)',
+                  }}
+                >
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{ background: 'rgba(242,169,0,0.10)', border: '1px solid rgba(242,169,0,0.18)' }}>
+                    <span style={{ color: '#F2A900' }}>{getIcon(card.icon, 18)}</span>
+                  </div>
+                  <h3 className="font-bold text-base mb-2" style={{ color: '#fff' }}>{card.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: '#B5AEC4' }} dir={isRtl ? 'rtl' : 'ltr'}>{card.text}</p>
+                </motion.article>
+              ))}
+            </div>
+
+            <div className="p-5 rounded-3xl overflow-hidden" style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.12), rgba(242,169,0,0.05))', border: '1px solid rgba(242,169,0,0.16)' }}>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                {t.map.map((step, index) => (
+                  <div key={step} className="flex items-center gap-3">
+                    <div className="px-4 py-3 rounded-2xl text-sm font-bold" style={{ background: 'rgba(9,4,22,0.55)', color: '#FFD666', border: '1px solid rgba(242,169,0,0.14)' }}>
+                      {step}
+                    </div>
+                    {index < t.map.length - 1 && (
+                      <ArrowRight size={16} style={{ color: 'rgba(242,169,0,0.45)', transform: isRtl ? 'rotate(180deg)' : undefined }} />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </AnimatedSection>
+  );
+}
+
 function WhySection({ lang }: { lang: 'en' | 'ar' }) {
   const t = content[lang].why;
   const isRtl = lang === 'ar';
@@ -1156,6 +1945,7 @@ function WhySection({ lang }: { lang: 'en' | 'ar' }) {
 function ServiceLayerCard({ layer, index, lang }: { layer: typeof content.en.services.layers[0]; index: number; lang: 'en' | 'ar' }) {
   const [expanded, setExpanded] = useState(false);
   const isRtl = lang === 'ar';
+  const enhancedLayer = layer as typeof layer & { isNew?: boolean };
 
   return (
     <motion.div
@@ -1180,6 +1970,11 @@ function ServiceLayerCard({ layer, index, lang }: { layer: typeof content.en.ser
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 mb-1">
             <span className="text-xs font-bold tracking-widest text-gold-gradient">{layer.num}</span>
+            {enhancedLayer.isNew && (
+              <span className="px-2 py-0.5 rounded-full text-[0.62rem] font-bold uppercase tracking-wider" style={{ background: 'rgba(242,169,0,0.12)', color: '#FFD666', border: '1px solid rgba(242,169,0,0.18)' }}>
+                {lang === 'en' ? 'New' : 'جديد'}
+              </span>
+            )}
             <h3 className="font-bold text-lg" style={{ color: '#fff' }}>{layer.title}</h3>
           </div>
           <p className="text-sm" style={{ color: '#B5AEC4' }} dir={isRtl ? 'rtl' : 'ltr'}>{layer.problem}</p>
@@ -1203,13 +1998,13 @@ function ServiceLayerCard({ layer, index, lang }: { layer: typeof content.en.ser
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <h4 className="font-bold text-xs tracking-wider uppercase mb-2" style={{ color: '#FFD666' }}>
-                    {lang === 'en' ? 'What We Build' : 'ما نبنيه'}
+                    {lang === 'en' ? 'What AURA Builds' : 'ما تبنيه AURA'}
                   </h4>
                   <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }} dir={isRtl ? 'rtl' : 'ltr'}>{layer.solution}</p>
                 </div>
                 <div>
                   <h4 className="font-bold text-xs tracking-wider uppercase mb-2" style={{ color: '#FFD666' }}>
-                    {lang === 'en' ? 'KPIs' : 'المخرجات'}
+                    {lang === 'en' ? 'Key Outputs' : 'المخرجات'}
                   </h4>
                   <ul className="space-y-1.5">
                     {layer.kpis.map((kpi, j) => (
@@ -1288,6 +2083,52 @@ function ServicesSection({ lang }: { lang: 'en' | 'ar' }) {
 
 /* ─── Process Section ──────────────────────────────────── */
 /* ─── Process Section ──────────────────────────────────── */
+function RealEstateProofSection({ lang }: { lang: 'en' | 'ar' }) {
+  const t = aura2026Content[lang].realEstate;
+  const isRtl = lang === 'ar';
+
+  return (
+    <AnimatedSection className="py-16 md:py-20 px-6 relative overflow-hidden" style={{ background: 'transparent' }}>
+      <div className="absolute inset-0 bg-radial-gradient from-gold-500/5 via-transparent to-transparent -z-10" />
+      <div className="max-w-6xl mx-auto">
+        <div className="rounded-[2rem] overflow-hidden p-6 md:p-8 lg:p-10" style={{ background: 'linear-gradient(135deg, rgba(16,6,36,0.86), rgba(42,19,78,0.72))', border: '1px solid rgba(242,169,0,0.18)', boxShadow: '0 18px 60px rgba(0,0,0,0.35)' }}>
+          <div className={`grid lg:grid-cols-12 gap-8 items-center ${isRtl ? 'lg:text-right' : 'lg:text-left'}`}>
+            <div className="lg:col-span-7 text-center lg:text-start">
+              <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-6" style={{ background: 'rgba(242,169,0,0.1)', color: '#FFD666', border: '1px solid rgba(242,169,0,0.2)' }}>
+                {t.badge}
+              </span>
+              <h2 className="text-3xl md:text-5xl font-extrabold mb-4" style={{ color: '#fff' }}>{t.title}</h2>
+              <p className="text-base md:text-lg mb-5" style={{ color: '#B5AEC4' }} dir={isRtl ? 'rtl' : 'ltr'}>{t.subtitle}</p>
+              <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: 'rgba(244,239,255,0.78)' }} dir={isRtl ? 'rtl' : 'ltr'}>{t.copy}</p>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-sm tracking-wider uppercase transition-all duration-300 hover:scale-105"
+                style={{ background: '#F2A900', color: '#090416', boxShadow: '0 8px 30px rgba(242,169,0,0.2)' }}
+              >
+                {t.cta}
+                {isRtl ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
+              </a>
+            </div>
+
+            <div className="lg:col-span-5">
+              <div className="grid gap-3">
+                {t.points.map((point, index) => (
+                  <div key={point} className="flex items-center gap-3 p-3 rounded-2xl" style={{ background: 'rgba(9,4,22,0.42)', border: '1px solid rgba(139,92,246,0.14)' }}>
+                    <span className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-xs font-bold" style={{ background: 'rgba(242,169,0,0.12)', color: '#FFD666', border: '1px solid rgba(242,169,0,0.18)' }}>
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.82)' }} dir={isRtl ? 'rtl' : 'ltr'}>{point}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </AnimatedSection>
+  );
+}
+
 function ProcessSection({ lang }: { lang: 'en' | 'ar' }) {
   const t = content[lang].process;
   const isRtl = lang === 'ar';
@@ -1554,7 +2395,7 @@ function DifferentiatorsSection({ lang }: { lang: 'en' | 'ar' }) {
           <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-gold-gradient">{t.title}</h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {t.items.map((item, i) => (
             <motion.div
               key={i}
@@ -1842,9 +2683,13 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection lang={lang} />
         <div className="section-divider" />
+        <EnterpriseSection lang={lang} />
+        <div className="section-divider" />
         <WhySection lang={lang} />
         <div className="section-divider" />
         <ServicesSection lang={lang} />
+        <div className="section-divider" />
+        <RealEstateProofSection lang={lang} />
         <div className="section-divider" />
         <ProcessSection lang={lang} />
         <div className="section-divider" />

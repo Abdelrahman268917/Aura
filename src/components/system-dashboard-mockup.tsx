@@ -6,34 +6,36 @@ type SystemDashboardMockupProps = {
 
 const copy = {
   en: {
-    eyebrow: 'AURA OPERATIONS',
-    title: 'System Overview',
-    live: 'Live workflow',
+    eyebrow: 'AURA COMMAND LAYER',
+    title: 'Enterprise System View',
+    live: 'Operating layer live',
+    active: 'Active',
     cards: [
-      { label: 'Workflow Health', value: 'Stable', detail: 'Core paths monitored' },
-      { label: 'Active Automations', value: 'Running', detail: 'Checks completed' },
-      { label: 'Monthly System Review', value: 'Planned', detail: 'Priority roadmap ready' },
-      { label: 'Process Efficiency', value: 'Improving', detail: 'Fewer manual handoffs' },
+      { label: 'Workflow Health', value: 'Visible', detail: 'Core paths monitored' },
+      { label: 'AI Agents', value: 'Supervised', detail: 'Human review points' },
+      { label: 'Leadership Review', value: 'Ready', detail: 'Priorities prepared' },
+      { label: 'Growth Layer', value: 'Connected', detail: 'Campaigns linked to follow-up' },
     ],
-    flowTitle: 'Lead handling flow',
+    flowTitle: 'Lead-to-report operating flow',
     flow: ['Lead', 'Check', 'Assign', 'Follow-up', 'Report'],
-    tasks: 'System tasks',
-    taskItems: ['Review new requests', 'Monitor handoffs', 'Prepare monthly improvements'],
+    tasks: 'Operating tasks',
+    taskItems: ['Review new signals', 'Monitor cross-team handoffs', 'Prepare improvement priorities'],
   },
   ar: {
-    eyebrow: 'عمليات AURA',
-    title: 'نظرة عامة على النظام',
-    live: 'مسار عمل نشط',
+    eyebrow: 'طبقة قيادة AURA',
+    title: 'رؤية المنظومة المؤسسية',
+    live: 'طبقة تشغيل نشطة',
+    active: 'نشط',
     cards: [
-      { label: 'صحة سير العمل', value: 'مستقر', detail: 'مراقبة المسارات الأساسية' },
-      { label: 'الأتمتة النشطة', value: 'تعمل', detail: 'تمت مراجعة العمليات' },
-      { label: 'مراجعة النظام الشهرية', value: 'مخططة', detail: 'خارطة الأولويات جاهزة' },
-      { label: 'كفاءة العمليات', value: 'تتحسن', detail: 'تسليمات يدوية أقل' },
+      { label: 'صحة سير العمل', value: 'مرئية', detail: 'مراقبة المسارات الأساسية' },
+      { label: 'وكلاء الذكاء الاصطناعي', value: 'تحت إشراف', detail: 'نقاط مراجعة بشرية' },
+      { label: 'مراجعة القيادة', value: 'جاهزة', detail: 'الأولويات معدة' },
+      { label: 'طبقة النمو', value: 'مترابطة', detail: 'الحملات مرتبطة بالمتابعة' },
     ],
-    flowTitle: 'مسار التعامل مع العميل المحتمل',
+    flowTitle: 'مسار التشغيل من العميل إلى التقرير',
     flow: ['عميل محتمل', 'مراجعة', 'إسناد', 'متابعة', 'تقرير'],
-    tasks: 'مهام النظام',
-    taskItems: ['مراجعة الطلبات الجديدة', 'مراقبة انتقال العمل', 'إعداد التحسينات الشهرية'],
+    tasks: 'مهام التشغيل',
+    taskItems: ['مراجعة الإشارات الجديدة', 'مراقبة انتقال العمل بين الفرق', 'إعداد أولويات التحسين'],
   },
 };
 
@@ -73,7 +75,7 @@ export function SystemDashboardMockup({ lang }: SystemDashboardMockupProps) {
       <div className="system-dashboard__flow">
         <div className="system-dashboard__section-title">
           <span>{t.flowTitle}</span>
-          <span className="system-dashboard__status"><Check size={12} /> Active</span>
+          <span className="system-dashboard__status"><Check size={12} /> {t.active}</span>
         </div>
         <div className="system-dashboard__flow-track">
           {t.flow.map((step, index) => (
