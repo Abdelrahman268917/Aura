@@ -15,9 +15,9 @@ const cairo = Cairo({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const title = "AURA | استوديو تسريع الأعمال للمؤسسات";
+const title = "AURA | استوديو تسريع الأعمال للشركات القائمة";
 const description =
-  "نحوّل الشركات والمجموعات إلى منظومات تشغيل ذكية عبر التشخيص، تصميم سير العمل، الأدوات الداخلية، وكلاء الذكاء الاصطناعي، واستراتيجيات النمو.";
+  "نساعد الشركات القائمة على تحويل التشغيل اليومي إلى منظومة واضحة عبر سير العمل، الأدوات الداخلية، الأتمتة، أنظمة النمو، والحلول المتخصصة.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aura-swzc.vercel.app"),
@@ -25,14 +25,15 @@ export const metadata: Metadata = {
   description,
   keywords: [
     "AURA",
-    "استوديو تسريع الأعمال للمؤسسات",
-    "منظومات تشغيل ذكية",
-    "تصميم سير العمل",
+    "استوديو تسريع الأعمال للشركات القائمة",
+    "سير العمل",
     "الأدوات الداخلية",
-    "وكلاء الذكاء الاصطناعي",
-    "Enterprise Business Acceleration Studio",
+    "الأتمتة",
+    "أنظمة النمو",
+    "الحلول المتخصصة",
+    "Business Acceleration Studio for Existing Companies",
   ],
-  authors: [{ name: "AURA Enterprise Business Acceleration Studio" }],
+  authors: [{ name: "AURA Business Acceleration Studio" }],
   icons: {
     icon: "/icon.png",
     apple: "/apple-icon.png",
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AURA Enterprise Business Acceleration Studio",
+        alt: "AURA Business Acceleration Studio for Existing Companies",
       },
     ],
     type: "website",

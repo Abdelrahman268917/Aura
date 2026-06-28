@@ -11,6 +11,7 @@ import {
   Sparkles, ArrowUpRight, Menu, X, Play, RefreshCw
 } from 'lucide-react';
 import { SystemDashboardMockup } from '@/components/system-dashboard-mockup';
+import { portfolioItems } from '@/data/portfolio';
 
 /* ─── i18n Content ────────────────────────────────────── */
 const content = {
@@ -1294,6 +1295,408 @@ const aura2026Content = {
 Object.assign(content.en, aura2026Content.en);
 Object.assign(content.ar, aura2026Content.ar);
 
+const auraSimpleContent = {
+  en: {
+    nav: {
+      home: 'Home',
+      services: 'Services',
+      process: 'Method',
+      packages: 'Options',
+      why: 'Value',
+      contact: 'Start',
+      cta: 'Start Diagnosis',
+    },
+    loader: {
+      tagline: 'Business Acceleration Studio',
+      line1: 'Turn scattered operations into a clear system.',
+      line2: 'Workflow. Tools. Automation. Growth.',
+    },
+    hero: {
+      badge: 'AURA · Business Acceleration Studio',
+      title1: 'Turn your',
+      title2: 'operations',
+      title3: 'into a clear',
+      title4: 'system.',
+      subheadline: 'We help existing companies redesign workflows, build internal tools, connect automation and AI, and turn daily follow-up into a measurable operating system.',
+      description: 'If your company is already working but execution is scattered across chats, sheets, tools, and invisible decisions, the issue is not effort. It is the lack of a clear operating system.',
+      cta1: 'Start Diagnosis',
+      cta2: 'Explore Services',
+      trust: 'Designed for companies with teams, clients, operations, and a real need for clearer execution.',
+    },
+    why: {
+      badge: 'Problem / Value',
+      title: 'Companies do not lose time suddenly. They lose it in daily details.',
+      subtitle: 'AURA makes the value easy to see: fewer scattered follow-ups, clearer ownership, and a system leadership can actually use.',
+      problems: [
+        { icon: 'scatter', title: 'Scattered Follow-up', desc: 'Work is split between WhatsApp, sheets, team memory, and tools that do not talk to each other.' },
+        { icon: 'delay', title: 'Decisions Without Full Visibility', desc: 'Management sees parts of the picture, but not where work is blocked or where opportunities are lost.' },
+        { icon: 'settings', title: 'Tools That Do Not Fit Reality', desc: 'Generic tools rarely reflect how the team actually works, so the team returns to manual work.' },
+        { icon: 'bot', title: 'AI Without a System', desc: 'AI that is not connected to real workflow creates noise before it creates value.' },
+      ],
+      solution: {
+        title: 'AURA does not just add another tool.',
+        desc: 'AURA rebuilds the way work moves: workflow, internal tools, automation, growth systems, and specialized solutions only when they clearly serve the business.',
+      },
+    },
+    services: {
+      badge: '5 Service Lines',
+      title: 'Five Clear Service Lines',
+      subtitle: 'We start by understanding how the company works, then choose the line with the highest impact: workflow, tools, automation, growth, or specialized solutions.',
+      layers: [
+        {
+          num: '01',
+          title: 'Workflow & Operating System Design',
+          problem: 'When it is unclear where work stops, who owns it, and why delivery is delayed.',
+          solution: 'We map the real workflow, define stages and responsibilities, then build a weekly follow-up rhythm and clear operating indicators.',
+          kpis: ['Workflow map', 'Stages and responsibilities', 'Follow-up templates', 'Performance indicators', 'Main bottlenecks'],
+          impact: 'Related proof: workflow and dashboard samples.',
+          icon: 'flow',
+          proofId: 'workflow-dashboard',
+          proofTitle: 'Operations dashboard sample',
+          cta: 'Check if it fits your company',
+        },
+        {
+          num: '02',
+          title: 'Internal Software & Business Tools',
+          problem: 'When the team depends on Excel, WhatsApp, and scattered links instead of one clear system.',
+          solution: 'We build dashboards, trackers, forms, and lightweight databases designed around the company’s real way of working.',
+          kpis: ['Dashboards', 'Input forms', 'Operations, client, or project tracker', 'Automatic reports', 'Single source of truth'],
+          impact: 'Related proof: internal tool and tracker samples.',
+          icon: 'build',
+          proofId: 'internal-tools',
+          proofTitle: 'Internal tool sample',
+          cta: 'Check if it fits your company',
+        },
+        {
+          num: '03',
+          title: 'AI Automation & Agent Systems',
+          problem: 'When follow-ups, reports, research, reminders, or data entry consume too much team time.',
+          solution: 'We identify what should be automated and build AI agents or flows connected to the workflow, with human review where needed.',
+          kpis: ['AI follow-up agent', 'AI reporting agent', 'AI research agent', 'Sales/support assistant', 'Workflow automation'],
+          impact: 'Related proof: AI agent and automation samples.',
+          icon: 'bot',
+          proofId: 'ai-automation',
+          proofTitle: 'AI automation sample',
+          cta: 'Check if it fits your company',
+        },
+        {
+          num: '04',
+          title: 'Growth, Marketing & Sales Systems',
+          problem: 'When marketing or sales is inconsistent, disconnected from follow-up, or not converted into measurable opportunities.',
+          solution: 'We design a growth system that connects analysis, positioning, content, campaigns, lightweight CRM, and opportunity tracking.',
+          kpis: ['Competitor analysis', 'Content pillars', 'Publishing calendar', 'Sales tracker or CRM', 'Growth intelligence'],
+          impact: 'Related proof: growth and sales tracking samples.',
+          icon: 'trend',
+          proofId: 'growth-system',
+          proofTitle: 'Growth system sample',
+          cta: 'Check if it fits your company',
+        },
+        {
+          num: '05',
+          title: 'Specialized Solutions',
+          problem: 'When the company needs deeper customization, sharper decisions, or an intelligence layer above existing data.',
+          solution: 'We propose advanced solutions only when the business impact is clear: Digital Twin, hyper-personalized real estate marketing, or executive decision intelligence.',
+          kpis: ['Digital Twin Company Simulation', 'Hyper-Personalized Real Estate Marketing', 'Executive Decision Intelligence', 'Custom Sector Systems'],
+          impact: 'Related proof: specialized solution samples. Not the default starting point for every client.',
+          icon: 'sparkle',
+          proofId: 'specialized-solutions',
+          proofTitle: 'Specialized solution sample',
+          cta: 'Check if it fits your company',
+        },
+      ],
+      who: [],
+    },
+    portfolio: {
+      badge: 'Portfolio / Proof',
+      title: 'Samples of How We Work',
+      subtitle: 'Selected proof slots that show how ideas and operations become systems, tools, and usable experiences. Real screenshots can be added as soon as they are available.',
+      placeholder: 'Sample coming soon',
+      view: 'See sample',
+      real: 'Real work',
+    },
+    discovery: {
+      badge: 'How We Start',
+      title: 'We start with the right study, not a fixed template.',
+      subtitle: 'Discovery depth changes based on company size, problem clarity, and the service line required.',
+      items: [
+        { name: 'Light Discovery', duration: '2-5 days', use: 'For one clear problem or one selected service line.', goal: 'Fast understanding and solution scope.' },
+        { name: 'Operational Mapping', duration: '7-14 days', use: 'For a workflow, dashboard, or follow-up system.', goal: 'Map the process, people, bottlenecks, and indicators.' },
+        { name: 'Business System Audit', duration: '14-30 days', use: 'For a larger company or business group.', goal: 'Deeper analysis of operations, tools, data, waste, and automation opportunities.' },
+      ],
+      note: 'Numbers are estimates and depend on scope, data quality, company size, and team availability.',
+    },
+    process: {
+      badge: 'Method',
+      title: 'Execution Methodology',
+      subtitle: 'A short path from scope to usable outputs, with quality checks before delivery.',
+      steps: [
+        { num: '01', title: 'Scope', desc: 'Define the service line, business problem, and first useful output.' },
+        { num: '02', title: 'Right-depth Study', desc: 'Choose light discovery, operational mapping, or deeper audit.' },
+        { num: '03', title: 'System Design', desc: 'Design workflow, data flow, ownership, and tool structure.' },
+        { num: '04', title: 'Build Outputs', desc: 'Build the agreed workflow, dashboard, tool, automation, or growth layer.' },
+        { num: '05', title: 'Handover & Training', desc: 'Train the team and document how the system should be used.' },
+        { num: '06', title: 'Improve & Measure', desc: 'Review usage, measure value, and improve what needs refinement.' },
+      ],
+      questions: {
+        title: 'Before delivery, we ask:',
+        items: ['What exact problem does this solve?', 'Will the team use it daily?', 'How do we know it created value?'],
+      },
+    },
+    packages: {
+      badge: 'Engagement Options',
+      title: 'Simple Engagement Options',
+      subtitle: 'No fixed prices. The right scope is defined after the study.',
+      sprint: {
+        name: 'Specific Service',
+        subtitle: 'For one clear problem or one service line.',
+        badge: 'Focused',
+        scope: 'Defined after study',
+        features: ['One service line', 'Clear problem scope', 'Usable output', 'Short handover', 'Next-step recommendation'],
+        cta: 'Start Diagnosis',
+      },
+      full: {
+        name: 'Integrated System',
+        subtitle: 'For workflow + tools + automation or growth.',
+        badge: 'Complete',
+        scope: 'Defined after study',
+        features: ['Multiple service lines', 'Workflow and tool design', 'Automation or growth layer', 'Team training', 'Improvement roadmap'],
+        cta: 'Start Diagnosis',
+      },
+      managed: {
+        name: 'Continuous Improvement',
+        subtitle: 'For monthly improvement and system ownership.',
+        badge: 'Monthly',
+        scope: 'Defined after study',
+        description: 'Ongoing review, updates, automation refinement, reporting, and monthly priorities after launch.',
+        features: ['Monthly review', 'System updates', 'Automation improvements', 'Reporting refinement', 'Priority backlog'],
+        cta: 'Discuss Monthly Support',
+      },
+      guide: { title: '', items: [] },
+      scopeNote: 'Scope and pricing are defined after the study so the work matches the company’s actual problem, team, tools, and data quality.',
+    },
+    contact: {
+      badge: 'Start Now',
+      title: 'Start by diagnosing your company need',
+      subtitle: 'Share your company type, where time is being lost, and what needs more clarity now. We will help identify the right service line and first implementation step.',
+      email: 'amirelshazly66@gmail.com',
+      phone: '+20 102 924 0066',
+      location: 'Egypt / Remote',
+      details: { email: 'Email', whatsapp: 'WhatsApp', location: 'Location' },
+      actions: [
+        { label: 'A', icon: 'target', title: 'Start Diagnosis', text: 'Tell us where work feels scattered, delayed, manual, or unclear.', cta: 'Start on WhatsApp', type: 'diagnosis' },
+        { label: 'B', icon: 'book', title: 'Send a Company Brief', text: 'Share your company, teams, tools, and the service line you think may fit.', cta: 'Send Email Brief', type: 'brief' },
+        { label: 'C', icon: 'refresh', title: 'Discuss Monthly Improvement', text: 'For companies that already have systems but need ongoing ownership and improvement.', cta: 'Discuss Support', type: 'monthly' },
+      ],
+    },
+    footer: {
+      tagline: 'Business Acceleration Studio',
+      rights: 'All rights reserved.',
+      built: 'Built with precision.',
+    },
+  },
+  ar: {
+    nav: {
+      home: 'الرئيسية',
+      services: 'الخدمات',
+      process: 'المنهجية',
+      packages: 'التعاون',
+      why: 'القيمة',
+      contact: 'ابدأ',
+      cta: 'ابدأ التشخيص',
+    },
+    loader: {
+      tagline: 'استوديو تسريع الأعمال',
+      line1: 'نحوّل التشغيل المتفرق إلى نظام واضح.',
+      line2: 'سير عمل. أدوات. أتمتة. نمو.',
+    },
+    hero: {
+      badge: 'AURA · استوديو تسريع الأعمال',
+      title1: 'حوّل تشغيل',
+      title2: 'شركتك',
+      title3: 'إلى منظومة',
+      title4: 'واضحة.',
+      subheadline: 'نساعد الشركات القائمة على تنظيم سير العمل، بناء الأدوات الداخلية، ربط الأتمتة والذكاء الاصطناعي، وتحويل المتابعة اليومية إلى نظام قابل للقياس والنمو.',
+      description: 'إذا كانت شركتك تعمل بالفعل لكن المتابعة تتم عبر رسائل، جداول، أدوات متفرقة، وقرارات غير مرئية، فالمشكلة ليست في مجهود الفريق. المشكلة في غياب نظام تشغيل واضح.',
+      cta1: 'ابدأ التشخيص',
+      cta2: 'استعرض الخدمات',
+      trust: 'مصمم للشركات التي لديها فرق، عملاء، عمليات، واحتياج حقيقي لنظام أوضح.',
+    },
+    why: {
+      badge: 'المشكلة والقيمة',
+      title: 'الشركات لا تخسر الوقت فجأة. تخسره في التفاصيل اليومية.',
+      subtitle: 'قيمة AURA تظهر بسرعة: متابعة أقل تشتتًا، مسؤوليات أوضح، ونظام يمكن للإدارة استخدامه فعليًا.',
+      problems: [
+        { icon: 'scatter', title: 'متابعة متفرقة', desc: 'العمل موزع بين واتساب، جداول، ذاكرة الفريق، وأدوات لا تتكلم مع بعضها.' },
+        { icon: 'delay', title: 'قرارات بلا رؤية كاملة', desc: 'الإدارة ترى أجزاء من الصورة، لكن لا ترى أين يتعطل العمل أو أين تضيع الفرص.' },
+        { icon: 'settings', title: 'أدوات لا تناسب الواقع', desc: 'استخدام أدوات جاهزة لا تعكس طريقة عمل الفريق يؤدي غالبًا للعودة إلى العمل اليدوي.' },
+        { icon: 'bot', title: 'ذكاء اصطناعي بلا نظام', desc: 'AI بدون ربط بسير العمل الحقيقي ينتج ضجيجًا أكثر من قيمة.' },
+      ],
+      solution: {
+        title: 'AURA لا تضيف أداة جديدة فقط.',
+        desc: 'AURA تعيد بناء طريقة العمل نفسها: سير عمل، أدوات داخلية، أتمتة، أنظمة نمو، وحلول متخصصة فقط عندما تكون قيمتها واضحة للشركة.',
+      },
+    },
+    services: {
+      badge: '5 خطوط خدمة',
+      title: 'خمس خطوط خدمة واضحة',
+      subtitle: 'نبدأ بفهم طريقة عمل الشركة، ثم نختار الخط الذي يحقق أكبر أثر: سير عمل، أدوات، أتمتة، نمو، أو حلول متخصصة.',
+      layers: [
+        {
+          num: '01',
+          title: 'تصميم نظام التشغيل وسير العمل',
+          problem: 'عندما لا يكون واضحًا أين يقف العمل، من المسؤول، ولماذا تتأخر التسليمات.',
+          solution: 'نرسم سير العمل الحقيقي، نحدد المراحل والمسؤوليات، ونبني إيقاع متابعة أسبوعي ومؤشرات واضحة.',
+          kpis: ['خريطة سير العمل', 'مراحل ومسؤوليات', 'قوالب متابعة', 'مؤشرات أداء', 'أهم نقاط التعطيل'],
+          impact: 'نماذج مرتبطة: لوحات تشغيل ومتابعة.',
+          icon: 'flow',
+          proofId: 'workflow-dashboard',
+          proofTitle: 'نموذج لوحة تشغيل',
+          cta: 'اعرف هل يناسب شركتك',
+        },
+        {
+          num: '02',
+          title: 'الأدوات والبرمجيات الداخلية',
+          problem: 'عندما يعتمد الفريق على Excel، WhatsApp، وروابط متفرقة بدل نظام واحد واضح.',
+          solution: 'نبني dashboards، trackers، forms، وdatabases خفيفة مصممة حول طريقة عمل الشركة الفعلية.',
+          kpis: ['لوحات تحكم', 'نماذج إدخال', 'متتبع عمليات أو عملاء أو مشاريع', 'تقارير تلقائية', 'مصدر موحد للحقيقة'],
+          impact: 'نماذج مرتبطة: أدوات داخلية ومتتبعات.',
+          icon: 'build',
+          proofId: 'internal-tools',
+          proofTitle: 'نموذج أداة داخلية',
+          cta: 'اعرف هل يناسب شركتك',
+        },
+        {
+          num: '03',
+          title: 'أتمتة الذكاء الاصطناعي والوكلاء',
+          problem: 'عندما تستهلك المتابعات، التقارير، البحث، التذكيرات، أو إدخال البيانات وقتًا كبيرًا من الفريق.',
+          solution: 'نحدد المهام القابلة للأتمتة ونبني وكلاء أو مسارات AI مرتبطة بسير العمل، مع مراجعة بشرية عند الحاجة.',
+          kpis: ['AI follow-up agent', 'AI reporting agent', 'AI research agent', 'Sales/support assistant', 'Workflow automation'],
+          impact: 'نماذج مرتبطة: وكلاء وأتمتة AI.',
+          icon: 'bot',
+          proofId: 'ai-automation',
+          proofTitle: 'نموذج أتمتة AI',
+          cta: 'اعرف هل يناسب شركتك',
+        },
+        {
+          num: '04',
+          title: 'أنظمة النمو والتسويق والمبيعات',
+          problem: 'عندما يكون التسويق أو المبيعات غير منتظم، غير متصل بالمتابعة، أو لا يتحول إلى فرص قابلة للقياس.',
+          solution: 'نصمم نظام نمو يربط التحليل، التموضع، المحتوى، الحملات، CRM خفيف، وتتبع الفرص.',
+          kpis: ['تحليل منافسين', 'Content pillars', 'تقويم نشر', 'Sales tracker أو CRM', 'Growth intelligence'],
+          impact: 'نماذج مرتبطة: أنظمة نمو ومتابعة مبيعات.',
+          icon: 'trend',
+          proofId: 'growth-system',
+          proofTitle: 'نموذج نظام نمو',
+          cta: 'اعرف هل يناسب شركتك',
+        },
+        {
+          num: '05',
+          title: 'الحلول المتخصصة',
+          problem: 'عندما تحتاج الشركة قرارًا أدق، تخصيصًا أعمق، أو طبقة ذكاء تشغيلية فوق البيانات الحالية.',
+          solution: 'نقترح حلولًا متقدمة فقط عندما يكون الأثر التجاري واضحًا: Digital Twin، التسويق العقاري مفرط التخصيص، أو Executive Decision Intelligence.',
+          kpis: ['Digital Twin Company Simulation', 'Hyper-Personalized Real Estate Marketing', 'Executive Decision Intelligence', 'Custom Sector Systems'],
+          impact: 'نماذج مرتبطة: حلول متخصصة. ليست نقطة البداية الافتراضية لكل عميل.',
+          icon: 'sparkle',
+          proofId: 'specialized-solutions',
+          proofTitle: 'نموذج حل متخصص',
+          cta: 'اعرف هل يناسب شركتك',
+        },
+      ],
+      who: [],
+    },
+    portfolio: {
+      badge: 'نماذج العمل',
+      title: 'نماذج من طريقة عملنا',
+      subtitle: 'نماذج مختارة توضح كيف نحول الأفكار والعمليات إلى أنظمة، أدوات، وتجارب قابلة للاستخدام. يمكن استبدال البطاقات بلقطات حقيقية عند توفرها.',
+      placeholder: 'عينة قادمة قريبًا',
+      view: 'شاهد العينة',
+      real: 'عمل حقيقي',
+    },
+    discovery: {
+      badge: 'كيف نبدأ',
+      title: 'نبدأ بالدراسة المناسبة، لا بقالب ثابت.',
+      subtitle: 'عمق الدراسة يتغير حسب حجم الشركة، وضوح المشكلة، ونوع الخدمة المطلوبة.',
+      items: [
+        { name: 'Discovery خفيف', duration: '2-5 أيام', use: 'لمشكلة واضحة أو خدمة محددة.', goal: 'فهم سريع وتحديد نطاق الحل.' },
+        { name: 'Operational Mapping', duration: '7-14 يوم', use: 'لتصميم workflow، dashboard، أو نظام متابعة.', goal: 'رسم العملية، الأطراف، نقاط التعطل، ومؤشرات القياس.' },
+        { name: 'Business System Audit', duration: '14-30 يوم', use: 'لشركة كبيرة أو مجموعة.', goal: 'تحليل أعمق للعمليات، الأدوات، البيانات، الهدر، وفرص الأتمتة.' },
+      ],
+      note: 'الأرقام تقديرية وتعتمد على نطاق العمل، حجم الشركة، جودة البيانات، والتزام الفريق بالتطبيق.',
+    },
+    process: {
+      badge: 'المنهجية',
+      title: 'منهجية التنفيذ',
+      subtitle: 'مسار قصير من تحديد النطاق إلى مخرجات قابلة للاستخدام، مع فلتر جودة قبل التسليم.',
+      steps: [
+        { num: '01', title: 'تحديد النطاق', desc: 'نحدد خط الخدمة، المشكلة التجارية، وأول مخرج مفيد.' },
+        { num: '02', title: 'الدراسة حسب العمق', desc: 'نختار Discovery خفيف، Operational Mapping، أو Audit أعمق.' },
+        { num: '03', title: 'تصميم النظام', desc: 'نصمم سير العمل، تدفق البيانات، المسؤوليات، وهيكل الأداة.' },
+        { num: '04', title: 'بناء المخرجات', desc: 'نبني سير العمل، اللوحة، الأداة، الأتمتة، أو طبقة النمو المتفق عليها.' },
+        { num: '05', title: 'التسليم والتدريب', desc: 'ندرب الفريق ونوثق طريقة استخدام النظام.' },
+        { num: '06', title: 'التحسين والقياس', desc: 'نراجع الاستخدام، نقيس القيمة، ونحسن ما يحتاج تطويرًا.' },
+      ],
+      questions: {
+        title: 'قبل تسليم أي حل، نسأل:',
+        items: ['ما المشكلة المحددة التي يحلها؟', 'هل سيستخدمه الفريق يوميًا؟', 'كيف نعرف أنه خلق قيمة؟'],
+      },
+    },
+    packages: {
+      badge: 'نماذج التعاون',
+      title: 'نماذج تعاون بسيطة',
+      subtitle: 'لا نعرض أسعارًا ثابتة. النطاق المناسب يُحدد بعد الدراسة.',
+      sprint: {
+        name: 'خدمة محددة',
+        subtitle: 'لمشكلة واضحة أو خط خدمة واحد.',
+        badge: 'مركز',
+        scope: 'يُحدد بعد الدراسة',
+        features: ['خط خدمة واحد', 'نطاق مشكلة واضح', 'مخرج قابل للاستخدام', 'تسليم مختصر', 'توصية للخطوة التالية'],
+        cta: 'ابدأ التشخيص',
+      },
+      full: {
+        name: 'نظام متكامل',
+        subtitle: 'لشركات تحتاج workflow + tools + automation/growth.',
+        badge: 'متكامل',
+        scope: 'يُحدد بعد الدراسة',
+        features: ['عدة خطوط خدمة', 'تصميم سير العمل والأدوات', 'طبقة أتمتة أو نمو', 'تدريب الفريق', 'خارطة تحسين'],
+        cta: 'ابدأ التشخيص',
+      },
+      managed: {
+        name: 'تحسين مستمر',
+        subtitle: 'للتحسين الشهري وملكية النظام.',
+        badge: 'شهري',
+        scope: 'يُحدد بعد الدراسة',
+        description: 'متابعة وتحسين مستمر بعد الإطلاق: تحديثات، أتمتة، تقارير، وأولويات شهرية.',
+        features: ['مراجعة شهرية', 'تحديث النظام', 'تحسين الأتمتة', 'تطوير التقارير', 'قائمة أولويات'],
+        cta: 'ناقش المتابعة',
+      },
+      guide: { title: '', items: [] },
+      scopeNote: 'يُحدد النطاق والتكلفة بعد الدراسة حتى يناسب العمل المشكلة الفعلية، الفريق، الأدوات، وجودة البيانات.',
+    },
+    contact: {
+      badge: 'ابدأ الآن',
+      title: 'ابدأ بتشخيص احتياج شركتك',
+      subtitle: 'شاركنا طبيعة شركتك، أين يضيع الوقت، وما أكثر شيء يحتاج وضوحًا الآن. سنساعدك على تحديد خط الخدمة الأنسب وأول خطوة تنفيذية.',
+      email: 'amirelshazly66@gmail.com',
+      phone: '+20 102 924 0066',
+      location: 'مصر / عن بُعد',
+      details: { email: 'البريد الإلكتروني', whatsapp: 'واتساب', location: 'الموقع' },
+      actions: [
+        { label: 'A', icon: 'target', title: 'ابدأ التشخيص', text: 'أخبرنا أين يبدو العمل متفرقًا، متأخرًا، يدويًا، أو غير واضح.', cta: 'ابدأ عبر واتساب', type: 'diagnosis' },
+        { label: 'B', icon: 'book', title: 'أرسل نبذة عن الشركة', text: 'شاركنا طبيعة الشركة، الفرق، الأدوات، وخط الخدمة الذي تتوقع أنه مناسب.', cta: 'أرسل بريدًا', type: 'brief' },
+        { label: 'C', icon: 'refresh', title: 'ناقش التحسين المستمر', text: 'للشركات التي لديها أنظمة قائمة وتحتاج متابعة وتحسين شهري.', cta: 'ناقش المتابعة', type: 'monthly' },
+      ],
+    },
+    footer: {
+      tagline: 'استوديو تسريع الأعمال',
+      rights: 'جميع الحقوق محفوظة.',
+      built: 'بُني بدقة.',
+    },
+  },
+} as const;
+
+Object.assign(content.en, auraSimpleContent.en);
+Object.assign(content.ar, auraSimpleContent.ar);
+
 const WHATSAPP_NUMBER = '201029240066';
 const CONTACT_EMAIL = 'amirelshazly66@gmail.com';
 const LANGUAGE_STORAGE_KEY = 'aura-language';
@@ -1387,6 +1790,44 @@ Object.assign(contactMessages.ar, {
 الأدوات أو الأنظمة الحالية:
 أكبر نقطة تعطيل حاليًا:
 ما الذي نريد تحسينه:
+رابط الموقع أو السوشيال:
+
+شكرًا.`,
+});
+
+Object.assign(contactMessages.en, {
+  diagnosis: 'Hi AURA team, I’d like to discuss how AURA can help turn our company operations into a clearer system. I’d like to start with a business diagnosis and identify the right service line.',
+  monthly: 'Hi AURA team, I’d like to discuss continuous improvement for our company operating system after launch.',
+  briefSubject: 'AURA Company Diagnosis Brief',
+  briefBody: `Hi AURA team,
+
+I would like to share a short brief and identify the right service line.
+
+Company name:
+Company type:
+Team / units:
+Where time is being lost:
+What needs more clarity now:
+Possible service line:
+Website/social link:
+
+Thank you.`,
+});
+
+Object.assign(contactMessages.ar, {
+  diagnosis: 'أهلًا فريق AURA، أريد مناقشة كيف يمكن لأورا مساعدتنا في تحويل التشغيل داخل شركتنا إلى منظومة أوضح. أود البدء بتشخيص احتياج الشركة وتحديد خط الخدمة المناسب.',
+  monthly: 'أهلًا فريق AURA، أريد مناقشة التحسين المستمر وملكية النظام بعد الإطلاق داخل شركتنا.',
+  briefSubject: 'تشخيص احتياج الشركة - AURA',
+  briefBody: `أهلًا فريق AURA،
+
+أرغب في إرسال نبذة قصيرة لتحديد خط الخدمة المناسب.
+
+اسم الشركة:
+نوع الشركة:
+عدد الفرق أو الوحدات:
+أين يضيع الوقت حاليًا:
+ما أكثر شيء يحتاج وضوحًا الآن:
+خط الخدمة المتوقع:
 رابط الموقع أو السوشيال:
 
 شكرًا.`,
@@ -1537,7 +1978,7 @@ function Navigation({ lang, setLang, scrolled }: { lang: 'en' | 'ar'; setLang: (
     { label: t.services, href: '#services' },
     { label: t.process, href: '#process' },
     { label: t.packages, href: '#packages' },
-    { label: t.why, href: '#why' },
+    { label: t.why, href: '#problem' },
   ];
 
   return (
@@ -1945,7 +2386,12 @@ function WhySection({ lang }: { lang: 'en' | 'ar' }) {
 function ServiceLayerCard({ layer, index, lang }: { layer: typeof content.en.services.layers[0]; index: number; lang: 'en' | 'ar' }) {
   const [expanded, setExpanded] = useState(false);
   const isRtl = lang === 'ar';
-  const enhancedLayer = layer as typeof layer & { isNew?: boolean };
+  const enhancedLayer = layer as typeof layer & {
+    cta?: string;
+    proofId?: string;
+    proofTitle?: string;
+    isNew?: boolean;
+  };
 
   return (
     <motion.div
@@ -2016,10 +2462,28 @@ function ServiceLayerCard({ layer, index, lang }: { layer: typeof content.en.ser
                   </ul>
                 </div>
               </div>
-              <div className="mt-4 p-4 rounded-xl flex items-center gap-2" style={{ background: 'rgba(242,169,0,0.08)', border: '1px solid rgba(242,169,0,0.15)' }}>
-                <TrendingUp size={16} style={{ color: '#FFD666' }} />
-                <span className="text-sm font-semibold" style={{ color: '#FFD666' }} dir={isRtl ? 'rtl' : 'ltr'}>{layer.impact}</span>
+              <div className="mt-4 p-4 rounded-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3" style={{ background: 'rgba(242,169,0,0.08)', border: '1px solid rgba(242,169,0,0.15)' }}>
+                <div className="flex items-center gap-2">
+                  <TrendingUp size={16} style={{ color: '#FFD666' }} />
+                  <span className="text-sm font-semibold" style={{ color: '#FFD666' }} dir={isRtl ? 'rtl' : 'ltr'}>{layer.impact}</span>
+                </div>
+                {enhancedLayer.proofId && (
+                  <a href={`#portfolio-${enhancedLayer.proofId}`} className="text-xs font-bold inline-flex items-center gap-1" style={{ color: '#fff' }}>
+                    {lang === 'en' ? 'Related proof' : 'نماذج مرتبطة'}
+                    {isRtl ? <ArrowLeft size={12} /> : <ArrowRight size={12} />}
+                  </a>
+                )}
               </div>
+              {enhancedLayer.cta && (
+                <a
+                  href="#contact"
+                  className="mt-4 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full font-bold text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105"
+                  style={{ border: '1px solid rgba(242,169,0,0.35)', color: '#FFD666', background: 'rgba(242,169,0,0.06)' }}
+                >
+                  {enhancedLayer.cta}
+                  {isRtl ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}
+                </a>
+              )}
             </div>
           </motion.div>
         )}
@@ -2083,6 +2547,114 @@ function ServicesSection({ lang }: { lang: 'en' | 'ar' }) {
 
 /* ─── Process Section ──────────────────────────────────── */
 /* ─── Process Section ──────────────────────────────────── */
+function PortfolioSection({ lang }: { lang: 'en' | 'ar' }) {
+  const t = auraSimpleContent[lang].portfolio;
+  const isRtl = lang === 'ar';
+
+  return (
+    <AnimatedSection id="portfolio" className="py-16 md:py-20 px-6 relative overflow-hidden" style={{ background: 'transparent' }}>
+      <div className="absolute inset-0 bg-radial-gradient from-purple-900/5 via-transparent to-transparent -z-10" />
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-10">
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-6" style={{ background: 'rgba(139,92,246,0.1)', color: '#A78BFA', border: '1px solid rgba(139,92,246,0.15)' }}>
+            {t.badge}
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-gold-gradient">{t.title}</h2>
+          <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: '#B5AEC4' }} dir={isRtl ? 'rtl' : 'ltr'}>
+            {t.subtitle}
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 xl:grid-cols-5 gap-4">
+          {portfolioItems.map((item, index) => (
+            <motion.article
+              id={`portfolio-${item.id}`}
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.06 }}
+              className="rounded-2xl overflow-hidden flex flex-col"
+              style={{ background: 'rgba(20,9,38,0.45)', border: '1px solid rgba(139,92,246,0.15)', backdropFilter: 'blur(10px)' }}
+            >
+              <div className="aspect-[4/3] relative flex items-center justify-center p-4" style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.14), rgba(242,169,0,0.08))' }}>
+                {item.image ? (
+                  <Image src={item.image} alt={lang === 'en' ? item.titleEn : item.titleAr} fill className="object-cover" />
+                ) : (
+                  <div className="text-center">
+                    <div className="w-12 h-12 rounded-2xl mx-auto mb-3 flex items-center justify-center" style={{ background: 'rgba(242,169,0,0.12)', border: '1px solid rgba(242,169,0,0.2)', color: '#FFD666' }}>
+                      {getIcon(index === 0 ? 'flow' : index === 1 ? 'build' : index === 2 ? 'bot' : index === 3 ? 'trend' : 'sparkle', 22)}
+                    </div>
+                    <p className="text-xs font-bold uppercase tracking-wider" style={{ color: '#FFD666' }}>{t.placeholder}</p>
+                  </div>
+                )}
+              </div>
+              <div className="p-5 flex flex-col flex-1">
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <span className="text-[0.65rem] font-bold uppercase tracking-wider" style={{ color: '#A78BFA' }}>{lang === 'en' ? item.categoryEn : item.categoryAr}</span>
+                  {item.isRealWork && <span className="text-[0.62rem] font-bold" style={{ color: '#FFD666' }}>{t.real}</span>}
+                </div>
+                <h3 className="font-bold text-base mb-2" style={{ color: '#fff' }}>{lang === 'en' ? item.titleEn : item.titleAr}</h3>
+                <p className="text-xs leading-relaxed mb-4 flex-1" style={{ color: '#B5AEC4' }} dir={isRtl ? 'rtl' : 'ltr'}>
+                  {lang === 'en' ? item.descriptionEn : item.descriptionAr}
+                </p>
+                <div className="p-3 rounded-xl mb-4" style={{ background: 'rgba(139,92,246,0.06)', border: '1px solid rgba(139,92,246,0.10)' }}>
+                  <p className="text-[0.68rem] font-bold uppercase mb-1" style={{ color: '#B5AEC4' }}>{lang === 'en' ? 'Related line' : 'الخدمة المرتبطة'}</p>
+                  <p className="text-xs font-bold" style={{ color: '#FFD666' }}>{lang === 'en' ? item.relatedServiceEn : item.relatedServiceAr}</p>
+                </div>
+                <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.74)' }} dir={isRtl ? 'rtl' : 'ltr'}>
+                  {lang === 'en' ? item.outcomeEn : item.outcomeAr}
+                </p>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </AnimatedSection>
+  );
+}
+
+function DiscoverySection({ lang }: { lang: 'en' | 'ar' }) {
+  const t = auraSimpleContent[lang].discovery;
+  const isRtl = lang === 'ar';
+
+  return (
+    <AnimatedSection className="py-16 md:py-20 px-6 relative overflow-hidden" style={{ background: 'transparent' }}>
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-10">
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-6" style={{ background: 'rgba(139,92,246,0.1)', color: '#A78BFA', border: '1px solid rgba(139,92,246,0.15)' }}>
+            {t.badge}
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4" style={{ color: '#fff' }}>{t.title}</h2>
+          <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: '#B5AEC4' }} dir={isRtl ? 'rtl' : 'ltr'}>{t.subtitle}</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-5 mb-5">
+          {t.items.map((item, index) => (
+            <motion.article
+              key={item.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              className="p-6 rounded-2xl"
+              style={{ background: 'rgba(20,9,38,0.45)', border: '1px solid rgba(139,92,246,0.15)', backdropFilter: 'blur(10px)' }}
+            >
+              <span className="text-xs font-bold tracking-widest text-gold-gradient">{item.duration}</span>
+              <h3 className="font-bold text-lg mt-2 mb-3" style={{ color: '#fff' }}>{item.name}</h3>
+              <p className="text-sm mb-3" style={{ color: '#B5AEC4' }} dir={isRtl ? 'rtl' : 'ltr'}>{item.use}</p>
+              <p className="text-sm font-semibold" style={{ color: '#FFD666' }} dir={isRtl ? 'rtl' : 'ltr'}>{item.goal}</p>
+            </motion.article>
+          ))}
+        </div>
+        <p className="text-center text-xs md:text-sm" style={{ color: 'rgba(255,255,255,0.5)' }} dir={isRtl ? 'rtl' : 'ltr'}>
+          {t.note}
+        </p>
+      </div>
+    </AnimatedSection>
+  );
+}
+
 function RealEstateProofSection({ lang }: { lang: 'en' | 'ar' }) {
   const t = aura2026Content[lang].realEstate;
   const isRtl = lang === 'ar';
@@ -2148,7 +2720,7 @@ function ProcessSection({ lang }: { lang: 'en' | 'ar' }) {
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-5 gap-4 mb-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-4 mb-10">
           {t.steps.map((step, i) => (
             <motion.div
               key={i}
@@ -2351,29 +2923,30 @@ function PackagesSection({ lang }: { lang: 'en' | 'ar' }) {
           {t.scopeNote}
         </p>
 
-        {/* Starting Point Guide */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="p-6 rounded-3xl"
-          style={{
-            background: 'rgba(20,9,38,0.4)',
-            border: '1px solid rgba(139,92,246,0.15)',
-            backdropFilter: 'blur(10px)',
-            boxShadow: '0 8px 30px rgba(0,0,0,0.2)',
-          }}
-        >
-          <h3 className="text-lg font-bold mb-5" style={{ color: '#fff' }}>{t.guide.title}</h3>
-          <div className="grid md:grid-cols-2 gap-3 max-h-[20rem] overflow-y-auto pr-2">
-            {t.guide.items.map((item, i) => (
-              <div key={i} className="p-4 rounded-xl" style={{ background: 'rgba(139,92,246,0.04)', border: '1px solid rgba(139,92,246,0.08)' }}>
-                <p className="text-sm font-medium mb-2" style={{ color: 'rgba(255,255,255,0.8)' }} dir={isRtl ? 'rtl' : 'ltr'}>{item.if}</p>
-                <p className="text-sm font-bold" style={{ color: '#FFD666' }}>{item.then}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+        {t.guide.items.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="p-6 rounded-3xl"
+            style={{
+              background: 'rgba(20,9,38,0.4)',
+              border: '1px solid rgba(139,92,246,0.15)',
+              backdropFilter: 'blur(10px)',
+              boxShadow: '0 8px 30px rgba(0,0,0,0.2)',
+            }}
+          >
+            <h3 className="text-lg font-bold mb-5" style={{ color: '#fff' }}>{t.guide.title}</h3>
+            <div className="grid md:grid-cols-2 gap-3 max-h-[20rem] overflow-y-auto pr-2">
+              {t.guide.items.map((item, i) => (
+                <div key={i} className="p-4 rounded-xl" style={{ background: 'rgba(139,92,246,0.04)', border: '1px solid rgba(139,92,246,0.08)' }}>
+                  <p className="text-sm font-medium mb-2" style={{ color: 'rgba(255,255,255,0.8)' }} dir={isRtl ? 'rtl' : 'ltr'}>{item.if}</p>
+                  <p className="text-sm font-bold" style={{ color: '#FFD666' }}>{item.then}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </div>
     </AnimatedSection>
   );
@@ -2683,23 +3256,17 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection lang={lang} />
         <div className="section-divider" />
-        <EnterpriseSection lang={lang} />
-        <div className="section-divider" />
         <WhySection lang={lang} />
         <div className="section-divider" />
         <ServicesSection lang={lang} />
         <div className="section-divider" />
-        <RealEstateProofSection lang={lang} />
+        <PortfolioSection lang={lang} />
+        <div className="section-divider" />
+        <DiscoverySection lang={lang} />
         <div className="section-divider" />
         <ProcessSection lang={lang} />
         <div className="section-divider" />
         <PackagesSection lang={lang} />
-        <div className="section-divider" />
-        <DifferentiatorsSection lang={lang} />
-        <div className="section-divider" />
-        <ExamplesSection lang={lang} />
-        <div className="section-divider" />
-        <ToolsSection lang={lang} />
         <div className="section-divider" />
         <ContactSection lang={lang} />
       </main>
