@@ -11,7 +11,7 @@ import {
   Sparkles, ArrowUpRight, Menu, X, Play, RefreshCw
 } from 'lucide-react';
 import { SystemDashboardMockup } from '@/components/system-dashboard-mockup';
-import { portfolioItems } from '@/data/portfolio';
+import { portfolioGroups } from '@/data/portfolio';
 
 /* ─── i18n Content ────────────────────────────────────── */
 const content = {
@@ -2548,66 +2548,192 @@ function ServicesSection({ lang }: { lang: 'en' | 'ar' }) {
 /* ─── Process Section ──────────────────────────────────── */
 /* ─── Process Section ──────────────────────────────────── */
 function PortfolioSection({ lang }: { lang: 'en' | 'ar' }) {
-  const t = auraSimpleContent[lang].portfolio;
   const isRtl = lang === 'ar';
+  const [activeGroupId, setActiveGroupId] = useState(portfolioGroups[0]?.id ?? 'workflow-dashboard');
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const activeGroup = portfolioGroups.find((group) => group.id === activeGroupId) ?? portfolioGroups[0];
+  const activeImage = activeGroup.images[activeImageIndex] ?? activeGroup.images[0];
+  const sectionCopy = lang === 'ar'
+    ? {
+        badge: '????? ?????',
+        title: '????? ?? ????? ?????',
+        subtitle: '????? ?????? ?? ?????? ?????? ?????? ?????? ??????? ???? ???????? ?? ??????? ???? ??????? ??????.',
+        intro: '??? ???? ????? ????? ???. ?? ????? ??? ???? ????? ????? ????: ????? ?????? ?? ??????? ??? ????? ?????? ???? ?????? ?? ????? ????? ?????? ??? ????? ????? ????.',
+        related: '?????? ????????',
+        view: '???? ???????',
+        prev: '??????',
+        next: '??????',
+        ctaText: '?? ???? ??????? ??????? ???????',
+        ctaButton: '???? ???????'
+      }
+    : {
+        badge: 'Proof of Work',
+        title: 'Proof of Work',
+        subtitle: 'Selected examples of systems, tools, automation flows, and growth assets built to support operations and business growth.',
+        intro: 'These are not just visuals. Each sample reflects how AURA turns a business problem into a system, interface, automation flow, or growth asset that makes work clearer.',
+        related: 'Related service line',
+        view: 'View sample',
+        prev: 'Previous',
+        next: 'Next',
+        ctaText: 'Want something similar for your company?',
+        ctaButton: 'Start Diagnosis'
+      };
+
+  const selectGroup = useCallback((groupId: string) => {
+    setActiveGroupId(groupId);
+    setActiveImageIndex(0);
+  }, []);
+
+  useEffect(() => {
+    const syncFromHash = () => {
+      const match = window.location.hash.match(/^#portfolio-(.+)$/);
+      const nextId = match?.[1];
+      if (nextId && portfolioGroups.some((group) => group.id === nextId)) {
+        selectGroup(nextId);
+      }
+    };
+    syncFromHash();
+    window.addEventListener('hashchange', syncFromHash);
+    return () => window.removeEventListener('hashchange', syncFromHash);
+  }, [selectGroup]);
+
+  useEffect(() => {
+    if (isPaused || activeGroup.images.length < 2) return;
+    const timer = window.setInterval(() => {
+      setActiveImageIndex((current) => (current + 1) % activeGroup.images.length);
+    }, 5000);
+    return () => window.clearInterval(timer);
+  }, [activeGroup.images.length, activeGroup.id, isPaused]);
+
+  const goPrevious = () => {
+    setActiveImageIndex((current) => (current - 1 + activeGroup.images.length) % activeGroup.images.length);
+  };
+  const goNext = () => {
+    setActiveImageIndex((current) => (current + 1) % activeGroup.images.length);
+  };
 
   return (
     <AnimatedSection id="portfolio" className="py-16 md:py-20 px-6 relative overflow-hidden" style={{ background: 'transparent' }}>
-      <div className="absolute inset-0 bg-radial-gradient from-purple-900/5 via-transparent to-transparent -z-10" />
+      <div className="absolute inset-0 bg-radial-gradient from-purple-900/10 via-transparent to-transparent -z-10" />
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-6" style={{ background: 'rgba(139,92,246,0.1)', color: '#A78BFA', border: '1px solid rgba(139,92,246,0.15)' }}>
-            {t.badge}
+            {sectionCopy.badge}
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-gold-gradient">{t.title}</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-gold-gradient">{sectionCopy.title}</h2>
           <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: '#B5AEC4' }} dir={isRtl ? 'rtl' : 'ltr'}>
-            {t.subtitle}
+            {sectionCopy.subtitle}
+          </p>
+          <p className="text-sm md:text-base leading-relaxed max-w-3xl mx-auto mt-5" style={{ color: 'rgba(255,255,255,0.72)' }} dir={isRtl ? 'rtl' : 'ltr'}>
+            {sectionCopy.intro}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-5 gap-4">
-          {portfolioItems.map((item, index) => (
-            <motion.article
-              id={`portfolio-${item.id}`}
-              key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.06 }}
-              className="rounded-2xl overflow-hidden flex flex-col"
-              style={{ background: 'rgba(20,9,38,0.45)', border: '1px solid rgba(139,92,246,0.15)', backdropFilter: 'blur(10px)' }}
-            >
-              <div className="aspect-[4/3] relative flex items-center justify-center p-4" style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.14), rgba(242,169,0,0.08))' }}>
-                {item.image ? (
-                  <Image src={item.image} alt={lang === 'en' ? item.titleEn : item.titleAr} fill className="object-cover" />
-                ) : (
-                  <div className="text-center">
-                    <div className="w-12 h-12 rounded-2xl mx-auto mb-3 flex items-center justify-center" style={{ background: 'rgba(242,169,0,0.12)', border: '1px solid rgba(242,169,0,0.2)', color: '#FFD666' }}>
-                      {getIcon(index === 0 ? 'flow' : index === 1 ? 'build' : index === 2 ? 'bot' : index === 3 ? 'trend' : 'sparkle', 22)}
-                    </div>
-                    <p className="text-xs font-bold uppercase tracking-wider" style={{ color: '#FFD666' }}>{t.placeholder}</p>
+        <div className="rounded-3xl overflow-hidden" style={{ background: 'rgba(20,9,38,0.58)', border: '1px solid rgba(139,92,246,0.18)', boxShadow: '0 30px 90px rgba(0,0,0,0.28)', backdropFilter: 'blur(14px)' }}>
+          <div className="grid lg:grid-cols-[0.34fr_0.66fr] min-h-[520px]">
+            <div className="p-4 md:p-5 border-b lg:border-b-0 lg:border-r" style={{ borderColor: 'rgba(139,92,246,0.14)' }}>
+              <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
+                {portfolioGroups.map((group) => {
+                  const active = activeGroup.id === group.id;
+                  return (
+                    <button
+                      id={'portfolio-' + group.id}
+                      key={group.id}
+                      type="button"
+                      onClick={() => selectGroup(group.id)}
+                      className="min-w-[210px] lg:min-w-0 text-start rounded-2xl p-4 transition-all duration-300"
+                      style={{
+                        background: active ? 'rgba(242,169,0,0.12)' : 'rgba(255,255,255,0.03)',
+                        border: active ? '1px solid rgba(242,169,0,0.34)' : '1px solid rgba(139,92,246,0.12)',
+                        color: active ? '#FFD666' : '#fff'
+                      }}
+                    >
+                      <span className="block text-[0.65rem] font-bold uppercase tracking-widest mb-2" style={{ color: active ? '#FFD666' : '#A78BFA' }}>
+                        {lang === 'en' ? group.categoryEn : group.categoryAr}
+                      </span>
+                      <span className="block font-bold text-sm md:text-base" dir={isRtl ? 'rtl' : 'ltr'}>
+                        {lang === 'en' ? group.titleEn : group.titleAr}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="p-4 md:p-6" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeGroup.id + '-' + activeImage.src}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.28 }}
+                  className="grid gap-5"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-2xl" style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.12), rgba(242,169,0,0.08))', border: '1px solid rgba(255,255,255,0.10)' }}>
+                    <Image
+                      src={activeImage.src}
+                      alt={lang === 'en' ? activeImage.altEn : activeImage.altAr}
+                      fill
+                      sizes="(min-width: 1024px) 760px, 100vw"
+                      className={activeImage.fit === 'cover' ? 'object-cover' : 'object-contain'}
+                    />
                   </div>
-                )}
-              </div>
-              <div className="p-5 flex flex-col flex-1">
-                <div className="flex items-center justify-between gap-3 mb-3">
-                  <span className="text-[0.65rem] font-bold uppercase tracking-wider" style={{ color: '#A78BFA' }}>{lang === 'en' ? item.categoryEn : item.categoryAr}</span>
-                  {item.isRealWork && <span className="text-[0.62rem] font-bold" style={{ color: '#FFD666' }}>{t.real}</span>}
-                </div>
-                <h3 className="font-bold text-base mb-2" style={{ color: '#fff' }}>{lang === 'en' ? item.titleEn : item.titleAr}</h3>
-                <p className="text-xs leading-relaxed mb-4 flex-1" style={{ color: '#B5AEC4' }} dir={isRtl ? 'rtl' : 'ltr'}>
-                  {lang === 'en' ? item.descriptionEn : item.descriptionAr}
-                </p>
-                <div className="p-3 rounded-xl mb-4" style={{ background: 'rgba(139,92,246,0.06)', border: '1px solid rgba(139,92,246,0.10)' }}>
-                  <p className="text-[0.68rem] font-bold uppercase mb-1" style={{ color: '#B5AEC4' }}>{lang === 'en' ? 'Related line' : 'الخدمة المرتبطة'}</p>
-                  <p className="text-xs font-bold" style={{ color: '#FFD666' }}>{lang === 'en' ? item.relatedServiceEn : item.relatedServiceAr}</p>
-                </div>
-                <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.74)' }} dir={isRtl ? 'rtl' : 'ltr'}>
-                  {lang === 'en' ? item.outcomeEn : item.outcomeAr}
-                </p>
-              </div>
-            </motion.article>
-          ))}
+
+                  <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
+                    <div dir={isRtl ? 'rtl' : 'ltr'} className={isRtl ? 'text-right' : 'text-left'}>
+                      <span className="text-xs font-bold uppercase tracking-widest" style={{ color: '#A78BFA' }}>{lang === 'en' ? activeGroup.categoryEn : activeGroup.categoryAr}</span>
+                      <h3 className="text-2xl md:text-3xl font-extrabold mt-2" style={{ color: '#fff' }}>{lang === 'en' ? activeGroup.titleEn : activeGroup.titleAr}</h3>
+                      <p className="text-sm md:text-base leading-relaxed mt-3" style={{ color: '#B5AEC4' }}>{lang === 'en' ? activeGroup.subtitleEn : activeGroup.subtitleAr}</p>
+                      <p className="text-sm leading-relaxed mt-3" style={{ color: 'rgba(255,255,255,0.78)' }}>{lang === 'en' ? activeImage.captionEn : activeImage.captionAr}</p>
+                    </div>
+                    <div className="rounded-2xl p-4 min-w-[210px]" style={{ background: 'rgba(242,169,0,0.08)', border: '1px solid rgba(242,169,0,0.16)' }}>
+                      <p className="text-[0.68rem] font-bold uppercase mb-1" style={{ color: '#B5AEC4' }}>{sectionCopy.related}</p>
+                      <p className="text-sm font-bold" style={{ color: '#FFD666' }}>{lang === 'en' ? activeGroup.relatedServiceEn : activeGroup.relatedServiceAr}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
+                    <div className="flex gap-2 overflow-x-auto pb-1">
+                      {activeGroup.images.map((image, index) => (
+                        <button
+                          key={image.src}
+                          type="button"
+                          onClick={() => setActiveImageIndex(index)}
+                          className="relative h-16 w-24 shrink-0 overflow-hidden rounded-xl transition-all duration-300"
+                          style={{ border: index === activeImageIndex ? '2px solid #F2A900' : '1px solid rgba(255,255,255,0.12)', opacity: index === activeImageIndex ? 1 : 0.62 }}
+                          aria-label={sectionCopy.view + ' ' + (index + 1)}
+                        >
+                          <Image src={image.src} alt={lang === 'en' ? image.altEn : image.altAr} fill sizes="96px" className={image.fit === 'cover' ? 'object-cover' : 'object-contain'} />
+                        </button>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <button type="button" onClick={isRtl ? goNext : goPrevious} className="w-10 h-10 rounded-full flex items-center justify-center" style={{ border: '1px solid rgba(242,169,0,0.28)', color: '#FFD666', background: 'rgba(242,169,0,0.07)' }} aria-label={sectionCopy.prev}>
+                        {isRtl ? <ArrowRight size={16} /> : <ArrowLeft size={16} />}
+                      </button>
+                      <button type="button" onClick={isRtl ? goPrevious : goNext} className="w-10 h-10 rounded-full flex items-center justify-center" style={{ border: '1px solid rgba(242,169,0,0.28)', color: '#FFD666', background: 'rgba(242,169,0,0.07)' }} aria-label={sectionCopy.next}>
+                        {isRtl ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
+                      </button>
+                      <a href={activeImage.src} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 h-10 rounded-full text-xs font-bold" style={{ background: '#F2A900', color: '#140926' }}>
+                        {sectionCopy.view}
+                        <ArrowUpRight size={13} />
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 rounded-3xl p-5 md:p-6 flex flex-col md:flex-row gap-4 md:items-center md:justify-between" style={{ background: 'rgba(242,169,0,0.08)', border: '1px solid rgba(242,169,0,0.16)' }}>
+          <p className="font-bold text-lg" style={{ color: '#fff' }} dir={isRtl ? 'rtl' : 'ltr'}>{sectionCopy.ctaText}</p>
+          <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 hover:scale-105" style={{ background: '#F2A900', color: '#140926' }}>
+            {sectionCopy.ctaButton}
+            {isRtl ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
+          </a>
         </div>
       </div>
     </AnimatedSection>
